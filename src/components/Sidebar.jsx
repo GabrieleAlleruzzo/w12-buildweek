@@ -3,70 +3,227 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 const Sidebar = () => {
-  retunr(
+  return (
     <>
-      {/* lingua e link profilo*/}
-      <Container className="rounded rounded-2 border-1 border-dark-subtle p-1">
+      <Container className="d-flex flex-column m-2">
         <Row>
-          <Col xs={12}>
-            <h3>Lingua del profilo</h3>
-            <i class="bi bi-pen"></i>
-          </Col>
-          <Row>
-            <Col>
-              <p>Italiano</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}>
-              <h3>Profilo pubblico e URL</h3>
-              <i class="bi bi-pen"></i>
-            </Col>
-            <Row>
-              <Col>
-                <a href="https://www.linkedin.com/">Link-profilo</a>
-              </Col>
-            </Row>
-          </Row>
-        </Row>
-      </Container>
+          <Col>
+            {/* lingua e link profilo*/}
+            <Container className="rounded rounded-2 border border-light-subtle border border-2 m-1 p-4 ">
+              <Row>
+                <Col
+                  xs={12}
+                  className="d-flex flex-row justify-content-between"
+                >
+                  <h3>Lingua del profilo</h3>
+                  <i className="bi bi-pen"></i>
+                </Col>
 
-      {/* Persone che potresti conoscere */}
-      <Container className="rounded rounded-2 border-1 border-dark-subtle p-1">
-        <Row>
-          <Col xs={12}>
-            <h4>Persone che potresti conoscere</h4>
-            <i class="bi bi-eye-fill"></i>
-            <p>Dal tuo settore</p>
-            <br className=" border-1 border-dark-subtle" />
+                <Col>
+                  <p>Italiano</p>
+                </Col>
+                {/* Separatore */}
+                <div className="border-bottom border border-light-subtle border-1 my-4"></div>
+                <Col
+                  xs={12}
+                  className="d-flex flex-row justify-content-between"
+                >
+                  <h3>Profilo pubblico e URL</h3>
+                  <i className="bi bi-pen"></i>
+                </Col>
 
-            <Card>
-              <Card.Img variant="top" src="holder.js/100px180" />
-              <Card.Body>
-                <Card.Title>
-                  <strong>Nome Cognome</strong>
-                </Card.Title>
-                <Card.Text>
-                  Epicodere presso <strong>Epicode</strong>
-                </Card.Text>
-                <Button className="rounded rounded-2 border-1 border-dark-subtle">
-                  {" "}
-                  <i class="bi bi-person-add"></i> Collegati
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+                <Col>
+                  <a href="https://www.linkedin.com/">
+                    Link-profilo-nome-congome
+                  </a>
+                </Col>
+              </Row>
+            </Container>
 
-      {/* Annuncio */}
-      <Container className="rounded rounded-2 border-1 border-dark-subtle p-1">
-        <Row>
-          <Col xs={12}>
-            <img
-              src="https://media.licdn.com/media/AAYABATPAAgAAQAAAAAAAKwYrfHUPkoBQGmwnaG71Ps_5Q.png"
-              alt="Annuncio"
-            />
+            {/* Persone che potresti conoscere */}
+            <Container className="rounded rounded-2 border border-light-subtle border border-2 m-1 p-4">
+              <Row>
+                <Col xs={12}>
+                  <h4>Persone che potresti conoscere</h4>
+                  <Col
+                    xs={12}
+                    className="d-flex flex-row justify-content-start"
+                  >
+                    <i className="bi bi-eye-fill me-2"></i>
+                    <p>Dal tuo settore</p>
+                  </Col>
+                  {/* Separatore */}
+                  <div className="border-bottom border border-light-subtle border-1 my-4"></div>
+
+                  {/* Card */}
+                  <Card className="border border-0 d-flex flex-row">
+                    <Col xs={3}>
+                      <Card.Img
+                        src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
+                        className="rounded rounded-circle"
+                      />
+                    </Col>
+                    <Col xs={9}>
+                      <Card.Body>
+                        <Card.Title>
+                          <strong>Nome Cognome</strong>
+                        </Card.Title>
+                        <Card.Text>
+                          Epicodere presso <strong>Epicode</strong>
+                        </Card.Text>
+
+                        <Button
+                          variant="light"
+                          className="rounded rounded-5 border-2 border-dark"
+                        >
+                          {" "}
+                          <i className="bi bi-person-add"></i> Collegati
+                        </Button>
+                      </Card.Body>
+                    </Col>
+                  </Card>
+                  {/* Fine card */}
+                  {/* Separatore */}
+                  <div className="border-bottom border border-light-subtle border-1 my-4"></div>
+
+                  {/* Card */}
+                  <Card className="border border-0 d-flex flex-row">
+                    <Col xs={3}>
+                      <Card.Img
+                        src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
+                        className="rounded rounded-circle"
+                      />
+                    </Col>
+                    <Col xs={9}>
+                      <Card.Body>
+                        <Card.Title>
+                          <strong>Nome Cognome</strong>
+                        </Card.Title>
+                        <Card.Text>
+                          Epicodere presso <strong>Epicode</strong>
+                        </Card.Text>
+
+                        <Button
+                          variant="light"
+                          className="rounded rounded-5 border-2 border-dark"
+                        >
+                          {" "}
+                          <i className="bi bi-person-add"></i> Collegati
+                        </Button>
+                      </Card.Body>
+                    </Col>
+                  </Card>
+                  {/* Fine card */}
+                  {/* Separatore */}
+                  <div className="border-bottom border border-light-subtle border-1 my-4"></div>
+
+                  {/* Card */}
+                  <Card className="border border-0 d-flex flex-row">
+                    <Col xs={3}>
+                      <Card.Img
+                        src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
+                        className="rounded rounded-circle"
+                      />
+                    </Col>
+                    <Col xs={9}>
+                      <Card.Body>
+                        <Card.Title>
+                          <strong>Nome Cognome</strong>
+                        </Card.Title>
+                        <Card.Text>
+                          Epicodere presso <strong>Epicode</strong>
+                        </Card.Text>
+
+                        <Button
+                          variant="light"
+                          className="rounded rounded-5 border-2 border-dark"
+                        >
+                          {" "}
+                          <i className="bi bi-person-add"></i> Collegati
+                        </Button>
+                      </Card.Body>
+                    </Col>
+                  </Card>
+                  {/* Fine card */}
+                  {/* Separatore */}
+                  <div className="border-bottom border border-light-subtle border-1 my-4"></div>
+
+                  {/* Card */}
+                  <Card className="border border-0 d-flex flex-row">
+                    <Col xs={3}>
+                      <Card.Img
+                        src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
+                        className="rounded rounded-circle"
+                      />
+                    </Col>
+                    <Col xs={9}>
+                      <Card.Body>
+                        <Card.Title>
+                          <strong>Nome Cognome</strong>
+                        </Card.Title>
+                        <Card.Text>
+                          Epicodere presso <strong>Epicode</strong>
+                        </Card.Text>
+
+                        <Button
+                          variant="light"
+                          className="rounded rounded-5 border-2 border-dark"
+                        >
+                          {" "}
+                          <i className="bi bi-person-add"></i> Collegati
+                        </Button>
+                      </Card.Body>
+                    </Col>
+                  </Card>
+                  {/* Fine card */}
+                  {/* Separatore */}
+                  <div className="border-bottom border border-light-subtle border-1 my-4"></div>
+
+                  {/* Card */}
+                  <Card className="border border-0 d-flex flex-row">
+                    <Col xs={3}>
+                      <Card.Img
+                        src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
+                        className="rounded rounded-circle"
+                      />
+                    </Col>
+                    <Col xs={9}>
+                      <Card.Body>
+                        <Card.Title>
+                          <strong>Nome Cognome</strong>
+                        </Card.Title>
+                        <Card.Text>
+                          Epicodere presso <strong>Epicode</strong>
+                        </Card.Text>
+
+                        <Button
+                          variant="light"
+                          className="rounded rounded-5 border-2 border-dark"
+                        >
+                          {" "}
+                          <i className="bi bi-person-add"></i> Collegati
+                        </Button>
+                      </Card.Body>
+                    </Col>
+                  </Card>
+                  {/* Fine card */}
+                </Col>
+              </Row>
+            </Container>
+
+            {/* Annuncio */}
+            <Container className="rounded rounded-2 border-1 border-dark-subtle m-1 p-0">
+              <Row>
+                <Col xs={12} className="mt-2">
+                  <img
+                    className="rounded rounded-2"
+                    style={{ width: "100%" }}
+                    src="https://media.licdn.com/media/AAYABATPAAgAAQAAAAAAAKwYrfHUPkoBQGmwnaG71Ps_5Q.png"
+                    alt="Annuncio"
+                  />
+                </Col>
+              </Row>
+            </Container>
           </Col>
         </Row>
       </Container>
@@ -75,3 +232,8 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+<Container>
+  <Row>
+    <Col></Col>
+  </Row>
+</Container>;

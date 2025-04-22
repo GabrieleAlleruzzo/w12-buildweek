@@ -1,7 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "./components/Sidebar";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { BrowserRouter } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
