@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 const Sidebar = () => {
   return (
     <>
-      <Container className="d-flex flex-column m-2">
+      <Container className="d-flex flex-column m-0 ">
         <Row>
           <Col>
             {/* lingua e link profilo*/}
@@ -39,9 +39,8 @@ const Sidebar = () => {
                 </Col>
               </Row>
             </Container>
-
             {/* Persone che potresti conoscere */}
-            <Container className="rounded rounded-2 border border-light-subtle border border-2 m-1 p-4">
+            <Container className="rounded rounded-2 border border-light-subtle border border-2 m-1 mb-0 p-4 rounded-bottom-0 border-bottom-0">
               <Row>
                 <Col xs={12}>
                   <h4>Persone che potresti conoscere</h4>
@@ -209,8 +208,22 @@ const Sidebar = () => {
                   {/* Fine card */}
                 </Col>
               </Row>
-            </Container>
-
+            </Container>{" "}
+            <div>
+              <button className="border border-2 rounded-5 rounded-top-0  w-100 mt-0 m-1  text-secondary d-flex flex-column justify-content-center  hover-active">
+                {" "}
+                <p className="m-2 ">
+                  <strong>
+                    <a
+                      href="https://www.linkedin.com/"
+                      className="text-decoration-none text-muted"
+                    >
+                      Mostra tutto
+                    </a>
+                  </strong>
+                </p>
+              </button>
+            </div>
             {/* Annuncio */}
             <Container className="rounded rounded-2 border-1 border-dark-subtle m-1 p-0">
               <Row>
@@ -232,8 +245,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-<Container>
-  <Row>
-    <Col></Col>
-  </Row>
-</Container>;
