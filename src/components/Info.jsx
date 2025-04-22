@@ -17,9 +17,12 @@ const Info = function () {
                 <Col>Ciao, sono un Testo</Col>
             </Row>
 
-            <Row>
-                <Col className="border border-1 rounded-2">
-                 compentenze digitali
+            <Row className="border border-1 rounded-2 m-1">
+                <Col xs={3}>
+                    <i class="bi bi-gem"></i>
+                </Col>
+                <Col xs={9} className="text-start">
+                    <h6>Competenze principali</h6>
                 </Col>
             </Row>
         </div>

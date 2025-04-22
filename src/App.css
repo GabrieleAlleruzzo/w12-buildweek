@@ -1,3 +1,8 @@
 .main {
     background-color: #f4f2ee;
 }
+
+
+.dropdown-toggle::after {
+    content: none !important;
+}

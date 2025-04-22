@@ -53,7 +53,7 @@ const MyNavBar = function () {
             title={
               <div className="d-flex flex-column align-items-center">
                 <img
-                  src="https://via.placeholder.com/30"
+                  src="https://placecats.com/60/60"
                   alt="Avatar"
                   className="rounded-circle mb-1"
                   style={{ width: '30px', height: '30px' }}
