@@ -1,6 +1,31 @@
-import { Card, Col, ListGroup, Row } from "react-bootstrap"
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { aggiungiCompetenza } from "../redux/actions"
+import { Col, ListGroup, Modal, Row, Button, Form, Card } from "react-bootstrap"
 
 const Competenze = function () {
+  const [show, setShow] = useState(false)
+  const [nuovaComp, setNuovaComp] = useState("")
+  const dispatch = useDispatch()
+  const competenze = useSelector((state) => state.competenze)
+
+  const handleClose = () => {
+    setShow(false)
+    setNuovaComp("")
+  }
+
+  const handleAggiungi = () => {
+    if (nuovaComp.trim() !== "") {
+      // Verifica che la competenza non esista già
+      if (competenze.includes(nuovaComp.trim())) {
+        alert("Questa competenza è già stata aggiunta!")
+      } else {
+        dispatch(aggiungiCompetenza(nuovaComp.trim()))
+        handleClose()
+      }
+    }
+  }
+
   return (
     <div className="bg-white rounded-2 border m-3 p-3">
       <Row className="justify-content-between">
@@ -12,6 +37,7 @@ const Competenze = function () {
             <i
               className="bi bi-plus-lg p-2 fs-4"
               style={{ cursor: "pointer" }}
+              onClick={() => setShow(true)}
             ></i>
             <i className="bi bi-pen p-2 fs-5" style={{ cursor: "pointer" }}></i>
           </div>
@@ -21,27 +47,114 @@ const Competenze = function () {
       <Row>
         <Col xs={12}>
           <ListGroup>
-            <ListGroup.Item className="border-0 border-bottom fw-bold">
-              HTML
-            </ListGroup.Item>
-            <ListGroup.Item className="border-0 border-bottom fw-bold">
-              CSS
-            </ListGroup.Item>
-            <ListGroup.Item className="border-0 border-bottom fw-bold">
-              JAVASCRIPT
-            </ListGroup.Item>
-            <ListGroup.Item className="border-0 border-bottom fw-bold">
-              BOOTSTRAP
-            </ListGroup.Item>
-            <ListGroup.Item className="border-0 border-bottom fw-bold">
-              REACT
-            </ListGroup.Item>
-            <ListGroup.Item className="border-0 border-bottom fw-bold">
-              REDUX
-            </ListGroup.Item>
+            {competenze.map((skill, i) => (
+              <ListGroup.Item
+                key={i}
+                className="border-0 border-bottom fw-bold"
+              >
+                {skill}
+              </ListGroup.Item>
+            ))}
           </ListGroup>
         </Col>
       </Row>
+
+      {/* Modale per aggiungere una nuova competenza */}
+      <Modal show={show} onHide={handleClose} backdrop="static" centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Aggiungi Competenza</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group>
+              <Form.Label>Nome competenza</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Es: TypeScript"
+                value={nuovaComp}
+                onChange={(e) => setNuovaComp(e.target.value)}
+              />
+            </Form.Group>
+          </Form>
+          <Card>
+            <Card.Body>
+              <Card.Title>Suggerite in base al tuo profilo</Card.Title>
+              <Card.Text>
+                <ul className="list-unstyled d-flex flex-wrap mt-2">
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Inglese
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Java
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Strategia
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Servizio clienti
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Ingegneria
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Leadership
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Presentazioni
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Competenze Analitiche
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Design
+                  </li>
+                  <li
+                    className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Presentazioni
+                  </li>
+                </ul>
+              </Card.Text>
+            </Card.Body>{" "}
+          </Card>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Annulla
+          </Button>
+          <Button variant="primary" onClick={handleAggiungi}>
+            Aggiungi
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
