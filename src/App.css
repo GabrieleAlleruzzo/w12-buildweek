@@ -17,3 +17,6 @@
 .dropdown-toggle::after {
     content: none !important;
 }
+:root {
+  background-color: #f4f2ee;
+}
