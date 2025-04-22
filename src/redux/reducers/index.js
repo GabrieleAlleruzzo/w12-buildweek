@@ -1,3 +1,4 @@
+
 const initialState = {
   competenze: ["HTML", "CSS", "JAVASCRIPT", "BOOTSTRAP", "REACT", "REDUX"],
   formazione: [
