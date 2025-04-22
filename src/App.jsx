@@ -7,6 +7,8 @@ import MyNavbar from "./components/MyNavbar";
 import Main from "./components/Main";
 
 
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 function App() {
   return (
     <>
