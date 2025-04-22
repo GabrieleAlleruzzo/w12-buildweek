@@ -10,8 +10,8 @@ import DynamicModal from "./DynamicModal";
 const Main = function () {
   return (
     <Container fluid className="flex-grow-1 vh-100 main">
-      <Row>
-        <Col xs={12} md={8}>
+      <Row className="justify-content-center">
+        <Col xs={12} md={6}>
           {/* altri componenti */}
           <Bio />
           <DynamicModal />
@@ -21,7 +21,7 @@ const Main = function () {
           <Competenze />
         </Col>
 
-        <Col xs={12} md={4}>
+        <Col xs={12} md={3}>
           <Sidebar />
         </Col>
       </Row>
