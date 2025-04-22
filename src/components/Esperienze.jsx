@@ -7,7 +7,7 @@ const Esperienze = function () {
 
             <Row className="justify-content-between">
                 <Col  >
-                <h4>Esperienza</h4>
+                    <h4>Esperienza</h4>
                 </Col>
                 <Col>
                     <div className="text-end d-flex justify-content-end">
