@@ -3,7 +3,7 @@ import Esperienze from "./Esperienze"
 
 const Main = function () {
     return (
-        <Container fluid className="flex-grow-1 vh-100">
+        <Container fluid className="flex-grow-1 vh-100 main">
 
             <Row>
                 <Col xs={12} md={8}>
