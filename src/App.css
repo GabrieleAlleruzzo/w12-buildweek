@@ -1,5 +1,16 @@
+/* bottone fine sidebar */
+
+.hover-active {
+  transition: background-color 0.3s ease;
+  background-color: #ffffff;
+}
+
+.hover-active:hover {
+  background-color: rgba(185, 185, 185, 0.452);
+}
+
 .main {
-    background-color: #f4f2ee;
+  background-color: #f4f2ee;
 }
 
 
