@@ -1,15 +1,14 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import "./App.css"
+import "bootstrap/dist/css/bootstrap.min.css"
 import MyNavbar from "./components/MyNavbar"
-import Main from "./components/Main";
 
 function App() {
-  return (<>
-  {/* <MyNavbar/> */}
-    <Main />
-  </>)
+  return (
+    <>
+      <MyNavbar />
+    </>
+  )
   // inserire "Routes" e "Route"
 }
 
-export default App;
+export default App
