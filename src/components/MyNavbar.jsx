@@ -63,7 +63,65 @@ const MyNavBar = function () {
             }
             id="nav-dropdown-user"
             className="me-4 text-center border-end pe-4">
-            <NavDropdown.Item href="#">Le mie App</NavDropdown.Item>
+           {/* PARTE PROFILO */}
+      <div className="px-3 py-2 text-start">
+        <div className="d-flex align-items-center mb-2">
+          <img
+            src="https://via.placeholder.com/50"
+            alt="Avatar"
+            className="rounded-circle me-2"
+            style={{ width: '50px', height: '50px' }}
+          />
+          <div>
+            <div className="fw-bold">Nome Cognome</div>
+            <div className="text-muted" style={{ fontSize: '0.8rem' }}>Content Moderator</div>
+          </div>
+        </div>
+
+        <button className="btn btn-outline-primary w-100 mb-2" style={{ borderRadius: '25px', fontWeight: 'bold' }}>
+          Visualizza profilo
+        </button>
+      </div>
+
+      <NavDropdown.Divider />
+
+      {/* SEZIONE ACCOUNT */}
+      <div className="px-3 text-start">
+        <small className="fw-bold text-muted">Account</small>
+      </div>
+      <NavDropdown.Item href="#">
+        <i className="bi bi-award-fill text-warning me-2"></i>Prova 1 mese di Premium per 0 EUR
+      </NavDropdown.Item>
+      <NavDropdown.Item href="#">Impostazioni e privacy</NavDropdown.Item>
+      <NavDropdown.Item href="#">Guida</NavDropdown.Item>
+      <NavDropdown.Item href="#">Lingua</NavDropdown.Item>
+
+      <NavDropdown.Divider />
+
+      {/* SEZIONE GESTISCI */}
+      <div className="px-3 text-start">
+        <small className="fw-bold text-muted">Gestisci</small>
+      </div>
+      <NavDropdown.Item href="#">Post e attività</NavDropdown.Item>
+      <NavDropdown.Item href="#">Account per la pubblicazione di offerte</NavDropdown.Item>
+
+      <NavDropdown.Divider />
+
+      {/* Esci */}
+      <NavDropdown.Item href="#">Esci</NavDropdown.Item>
+    </NavDropdown>
+    
+
+          {/* Le mie aziende */}
+          <NavDropdown
+            title={
+              <div className="d-flex flex-column align-items-center">
+               <i className="bi bi-grid-3x3-gap" style={{ fontSize: "1.5rem" }}></i>
+              </div>
+            }
+            id="nav-dropdown-user"
+            className="me-4 text-center border-end pe-4">
+                <small className="fw-bold">Le mie Aziende</small>
             <NavDropdown.Item href="#"><i class="bi bi-cursor-fill"></i> Trova Nuovi Clienti</NavDropdown.Item>
             <NavDropdown.Item href="#"><i class="bi bi-person-lines-fill"></i> Gruppi</NavDropdown.Item>
             <NavDropdown.Divider />
@@ -73,13 +131,8 @@ const MyNavBar = function () {
             <NavDropdown.Item href="#"><i class="bi bi-info-square-fill"></i> Trova i migliori Freelancer</NavDropdown.Item>
           <NavDropdown.Item href="#"><i class="bi bi-graph-up-arrow"></i> Marketing</NavDropdown.Item>
           <NavDropdown.Item href="#"><i class="bi bi-collection-play-fill"></i> Learning</NavDropdown.Item>
-          </NavDropdown>
+                  </NavDropdown>
 
-          {/* Le mie aziende */}
-          <Nav.Link href="#" className="d-flex flex-column align-items-center ms-4 me-4 text-center">
-            <i className="bi bi-grid-3x3-gap" style={{ fontSize: "1.5rem" }}></i>
-            <small>Le mie aziende</small>
-          </Nav.Link>
 
           {/* Prova Premium */}
           <Nav.Link href="#" className="d-flex flex-column align-items-center text-warning ms-2">
