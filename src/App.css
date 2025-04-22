@@ -20,3 +20,13 @@
 :root {
   background-color: #f4f2ee;
 }
+
+.bi-plus-lg:hover, .bi-pen:hover {
+    background-color: #f3f3f3;
+    border-radius: 50%;
+}
+
+.bi-plus-lg:active, .bi-pen:active {
+    background-color: #e0dfdf;
+    border-radius: 50%;
+}
