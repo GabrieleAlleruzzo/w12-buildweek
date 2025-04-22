@@ -1,1 +1,33 @@
+/* bottone fine sidebar */
 
+.hover-active {
+  transition: background-color 0.3s ease;
+  background-color: #ffffff;
+}
+
+.hover-active:hover {
+  background-color: rgba(185, 185, 185, 0.452);
+}
+
+.main {
+  background-color: #f4f2ee;
+}
+
+.dropdown-toggle::after {
+  content: none !important;
+}
+:root {
+  background-color: #f4f2ee;
+}
+
+/*hover ai <li> del modale competenze*/
+
+.skill-items {
+  transition: all 0.3s ease;
+}
+
+.skill-items:hover {
+  background-color: #f0f0f0; /* colore di sfondo al passaggio */
+  transform: scale(1.05); /* leggera ingrandita */
+  border-color: #007bff; /* cambia il bordo (opzionale) */
+}
