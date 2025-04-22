@@ -17,8 +17,8 @@ const Esperienze = function () {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Aggiungi posizione lavorativa</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Aggiungi pausa lavorativa</Dropdown.Item>
+                                <Dropdown.Item href="#/action-1" className="fw-semibold"><i className="bi bi-duffle-fill pe-1"></i>  Aggiungi posizione lavorativa</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" className="fw-semibold"><i className="bi bi-calendar-date pe-1"></i>  Aggiungi pausa lavorativa</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         
@@ -31,18 +31,30 @@ const Esperienze = function () {
             {/* singole esperienze */}
 
             <Row>
-                
-                <Col xs={3}>
-                    <img src="https://placecats.com/300/300" alt="" />
+                <Col xs={12}>
+                <Card className="d-flex flex-row align-items-start p-2 border-0">
+                    <Card.Img
+                    variant="left"
+                    src="https://placecats.com/60/60"
+                    style={{ objectFit: "cover" }}
+                    className="mt-3"
+                    />
+                    <Card.Body className="p-2">
+                    <Card.Title className="mb-1">
+                        Nome posizione
+                    </Card.Title>
+                    <Card.Text className="mb-0 fw-semibold">
+                        Nome impresa &#183; Part-time
+                    </Card.Text>
+                    <Card.Text className="mb-0 text-secondary">
+                        inizio - fine &#183; durata
+                    </Card.Text>
+                    <Card.Text className="mb-0 fw-semibold">
+                    <i className="bi bi-gem"></i> compentenze
+                    </Card.Text>
+                    </Card.Body>
+                </Card>
                 </Col>
-                <Col xs={9}>
-                    <h5>Nome Posizione</h5>
-                    <p>Nome impresa &#183; Part-time</p>
-                    <p className="text-secondary">inizio - fine &#183; durata</p>
-                    <h6>competenze</h6>
-                </Col>
-
-
             </Row>
         </div>
     )
