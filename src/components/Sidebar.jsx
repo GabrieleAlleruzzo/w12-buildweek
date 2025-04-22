@@ -9,7 +9,7 @@ const Sidebar = () => {
         <Row>
           <Col>
             {/* lingua e link profilo*/}
-            <Container className="rounded rounded-2 border border-light-subtle border border-2 m-1 p-4 ">
+            <Container className="rounded rounded-2 border border-light-subtle border border-2 m-1 p-4 bg-white">
               <Row>
                 <Col
                   xs={12}
@@ -40,7 +40,7 @@ const Sidebar = () => {
               </Row>
             </Container>
             {/* Persone che potresti conoscere */}
-            <Container className="rounded rounded-2 border border-light-subtle border border-2 m-1 mb-0 p-4 rounded-bottom-0 border-bottom-0">
+            <Container className="rounded rounded-2 border border-light-subtle border border-2 m-1 mb-0 p-4 rounded-bottom-0 border-bottom-0 bg-white">
               <Row>
                 <Col xs={12}>
                   <h4>Persone che potresti conoscere</h4>
