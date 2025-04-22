@@ -53,7 +53,7 @@ const MyNavBar = function () {
             title={
               <div className="d-flex flex-column align-items-center">
                 <img
-                  src="https://placecats.com/60/60"
+                  src="https://via.placeholder.com/30"
                   alt="Avatar"
                   className="rounded-circle mb-1"
                   style={{ width: '30px', height: '30px' }}
@@ -62,17 +62,17 @@ const MyNavBar = function () {
               </div>
             }
             id="nav-dropdown-user"
-            className="me-4 text-center border-end pe-4"
-          >
+            className="me-4 text-center border-end pe-4">
             <NavDropdown.Item href="#">Le mie App</NavDropdown.Item>
-            <NavDropdown.Item href="#"><i class="bi bi-cursor-fill"></i>Trova Nuovi Clienti</NavDropdown.Item>
-            <NavDropdown.Item href="#"><i class="bi bi-person-lines-fill"></i>Gruppi</NavDropdown.Item>
+            <NavDropdown.Item href="#"><i class="bi bi-cursor-fill"></i> Trova Nuovi Clienti</NavDropdown.Item>
+            <NavDropdown.Item href="#"><i class="bi bi-person-lines-fill"></i> Gruppi</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#"><i class="bi bi-clipboard-data-fill"></i>Talent Insight</NavDropdown.Item>
-            <NavDropdown.Item href="#"><i class="bi bi-person-plus-fill"></i>Pubblica un'offerta di Lavoro</NavDropdown.Item>
+            <NavDropdown.Item href="#"><i class="bi bi-clipboard-data-fill"></i> Talent Insight</NavDropdown.Item>
+            <NavDropdown.Item href="#"><i class="bi bi-person-plus-fill"></i> Pubblica un'offerta di Lavoro</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#"><i class="bi bi-info-square-fill"></i>Trova i migliori Freelancer</NavDropdown.Item>
-          <NavDropdown.Item href="#"><i class="bi bi-graph-up-arrow"></i>Marketing</NavDropdown.Item>
+            <NavDropdown.Item href="#"><i class="bi bi-info-square-fill"></i> Trova i migliori Freelancer</NavDropdown.Item>
+          <NavDropdown.Item href="#"><i class="bi bi-graph-up-arrow"></i> Marketing</NavDropdown.Item>
+          <NavDropdown.Item href="#"><i class="bi bi-collection-play-fill"></i> Learning</NavDropdown.Item>
           </NavDropdown>
 
           {/* Le mie aziende */}
