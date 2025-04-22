@@ -1,10 +1,21 @@
 import { Card, Col, Dropdown, Row } from "react-bootstrap"
 
 const Esperienze = function () {
-    return (
-        <div className="bg-white rounded-2 border m-3 p-3">
+  return (
+    <div className="bg-white rounded-2 border m-3 p-3">
+      <Row className="justify-content-between">
+        <Col>
+          <h4>Esperienza</h4>
+        </Col>
+        <Col>
+          <div className="text-end">
+            <i className="bi bi-plus-lg p-2 fs-4"></i>
+            <i className="bi bi-pen p-2 fs-5"></i>
+          </div>
+        </Col>
+      </Row>
 
-            {/* titolo */}
+      {/* singole esperienze */}
 
             <Row className="justify-content-between">
                 <Col  >
