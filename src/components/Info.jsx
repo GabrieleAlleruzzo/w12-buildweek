@@ -19,7 +19,7 @@ const Info = function () {
 
             <Row className="border border-1 rounded-2 m-1 py-2">
                 <Col xs={1} className="text-center">
-                    <i class="bi bi-gem"></i>
+                    <i className="bi bi-gem"></i>
                 </Col>
                 <Col xs={11} className="text-start ps-1">
                     <h6 className="mb-0">Competenze principali</h6>
