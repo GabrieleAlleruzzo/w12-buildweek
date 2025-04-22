@@ -81,67 +81,67 @@ const Competenze = function () {
               <Card.Title>Suggerite in base al tuo profilo</Card.Title>
               <ul className="list-unstyled d-flex flex-wrap mt-2">
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Inglese
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Java
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Strategia
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Servizio clienti
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Ingegneria
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Leadership
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Presentazioni
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Competenze Analitiche
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Design
                 </li>
                 <li
-                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2"
+                  className="border border-1 border-black rounded-3 me-2 p-1 mt-2 skill-items"
                   style={{ cursor: "pointer" }}
                 >
                   Presentazioni
                 </li>
               </ul>
-            </Card.Body>{" "}
+            </Card.Body>
           </Card>
         </Modal.Body>
         <Modal.Footer>

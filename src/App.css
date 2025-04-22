@@ -13,10 +13,21 @@
   background-color: #f4f2ee;
 }
 
-
 .dropdown-toggle::after {
-    content: none !important;
+  content: none !important;
 }
 :root {
   background-color: #f4f2ee;
+}
+
+/*hover ai <li> del modale competenze*/
+
+.skill-items {
+  transition: all 0.3s ease;
+}
+
+.skill-items:hover {
+  background-color: #f0f0f0; /* colore di sfondo al passaggio */
+  transform: scale(1.05); /* leggera ingrandita */
+  border-color: #007bff; /* cambia il bordo (opzionale) */
 }
