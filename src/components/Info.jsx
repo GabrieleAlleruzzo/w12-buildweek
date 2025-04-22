@@ -18,10 +18,10 @@ const Info = function () {
             </Row>
 
             <Row className="border border-1 rounded-2 m-1">
-                <Col xs={3}>
+                <Col xs={1} className="p-1">
                     <i class="bi bi-gem"></i>
                 </Col>
-                <Col xs={9} className="text-start">
+                <Col xs={11} className="text-start">
                     <h6>Competenze principali</h6>
                 </Col>
             </Row>
