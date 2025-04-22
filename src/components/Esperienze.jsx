@@ -50,7 +50,7 @@ const Esperienze = function () {
                         inizio - fine &#183; durata
                     </Card.Text>
                     <Card.Text className="mb-0 fw-semibold">
-                    <i className="bi bi-gem"></i> compentenze
+                    <i className="bi bi-gem"></i> competenze
                     </Card.Text>
                     </Card.Body>
                 </Card>

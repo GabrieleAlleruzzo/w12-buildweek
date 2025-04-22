@@ -17,12 +17,16 @@ const Info = function () {
                 <Col>Ciao, sono un Testo</Col>
             </Row>
 
-            <Row className="border border-1 rounded-2 m-1">
-                <Col xs={1} className="p-1">
+            <Row className="border border-1 rounded-2 m-1 py-2">
+                <Col xs={1} className="text-center">
                     <i class="bi bi-gem"></i>
                 </Col>
-                <Col xs={11} className="text-start">
-                    <h6>Competenze principali</h6>
+                <Col xs={11} className="text-start ps-1">
+                    <h6 className="mb-0">Competenze principali</h6>
+                    <div className="d-flex justify-content-between">
+                        <p className="">competenze <span className="fw-bold">&#183;</span>  competenze <span className="fw-bold">&#183;</span> competenze</p>
+                        <i className="bi bi-arrow-right"></i>
+                    </div>
                 </Col>
             </Row>
         </div>
