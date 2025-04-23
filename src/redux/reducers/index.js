@@ -15,10 +15,12 @@ const initialState = {
     show: false,
   },
   profiloMe: {
-    info: "",
-    image: "",
+    name: "",
+    surname: "",
+    title: "",
+    area: "",
+    image: null,
   },
-  profiliColleghi: [],
 }
 
 const mainReducer = (state = initialState, action) => {

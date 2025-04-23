@@ -1,9 +1,12 @@
 import React, { useState } from "react"; // Importare useState
 import { Container, Row, Col, Button, Dropdown } from "react-bootstrap"; // Importare Dropdown
 import "../style/Bio.css";
-import avatarVuoto from "../assets/avatarVuoto.webp";
+
 import coverImage from "../assets/coverImage.png";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchProfiloMe } from "../redux/actions";
 
 const modalContents = {
   content1: {
@@ -22,6 +25,11 @@ const modalContents = {
 
 const Bio = () => {
   const dispatch = useDispatch();
+  const profilo = useSelector((state) => state.profiloMe);
+
+  useEffect(() => {
+    dispatch(fetchProfiloMe());
+  }, [dispatch]);
 
   const openAddProfilo = () => {
     dispatch({
@@ -62,14 +70,16 @@ const Bio = () => {
       <Container className="bio-container">
         <div className="mt-3">
           <div className="user-image">
-            <img src={avatarVuoto} alt="Foto profilo" />
+            <img src={profilo.image} alt="Foto profilo" />
           </div>
         </div>
         <Row>
           <Col xs="8">
-            <h2 className="profile-name">Nome Cognome</h2>
-            <p className="profile-role">Web Developer</p>
-            <p className="profile-location">Roma, Lazio • Italia</p>
+            <h2 className="profile-name">
+              {profilo.name} {profilo.surname}
+            </h2>
+            <p className="profile-role">{profilo.title}</p>
+            <p className="profile-location">{profilo.area}</p>
           </Col>
         </Row>
 
