@@ -115,7 +115,7 @@ const Formazione = function () {
             </div>
             <p className="text-secondary">Data di fine (o prevista) </p>
             <div className="d-flex justify-content-around">
-              <Form.Group className="mb-3" controlId="formMese">
+              <Form.Group className="mb-3" controlId="formMese2">
                 <Form.Label>Mese</Form.Label>
                 <Form.Select>
                   <option>Seleziona un mese</option>
@@ -133,7 +133,7 @@ const Formazione = function () {
                   <option>Dicembre</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formAnno">
+              <Form.Group className="mb-3" controlId="formAnno2">
                 <Form.Label>Anno</Form.Label>
                 <Form.Select>
                   <option>Seleziona un anno</option>
@@ -157,11 +157,11 @@ const Formazione = function () {
               <Form.Label>Voto</Form.Label>
               <Form.Control type="text" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formVoto">
+            <Form.Group className="mb-3" controlId="formAtt">
               <Form.Label>Attività e associazioni</Form.Label>
               <Form.Control type="text" placeholder="Pesca" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formVoto">
+            <Form.Group className="mb-3" controlId="formDes">
               <Form.Label>Descrizione</Form.Label>
               <Form.Control type="text" placeholder="Ciao" />
             </Form.Group>
