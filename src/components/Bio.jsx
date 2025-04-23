@@ -2,7 +2,6 @@ import React, { useState } from "react"; // Importare useState
 import { Container, Row, Col, Button, Dropdown } from "react-bootstrap"; // Importare Dropdown
 import "../style/Bio.css";
 
-import coverImage from "../assets/coverImage.png";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -57,10 +56,12 @@ const Bio = () => {
   };
 
   return (
-    <div className="bio-wrapper mt-2">
+    <div className="bio-wrapper bg-white rounded-2 border m-3 p-3">
       <div
         className="cover-image"
-        style={{ backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)` }}
+        style={{
+          backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)`,
+        }}
       >
         <span className="camera-icon">
           <i className="bi bi-camera"></i>
@@ -68,12 +69,26 @@ const Bio = () => {
       </div>
 
       <Container className="bio-container">
-        <div className="mt-3 d-flex">
+        <div className="d-flex flex-column align-items-start">
           <div className="user-image">
-            <img
-              src={profilo.image}
-              alt="Foto profilo"
-              className="mx-auto d-block"
+            <img src={profilo.image} alt="Foto profilo" className="d-block" />
+          </div>
+          <div className="w-100 d-flex justify-content-end">
+            <i
+              className="bi bi-pen p-2 fs-5"
+              style={{ cursor: "pointer" }}
+              onClick={() =>
+                dispatch({
+                  type: "OPEN_DYNAMIC_MODAL",
+                  payload: {
+                    title: "Modifica Profilo",
+                    bodyType: "modificaProfilo",
+                    show: true,
+                    footer: true,
+                    profilo: profilo,
+                  },
+                })
+              }
             />
           </div>
         </div>
