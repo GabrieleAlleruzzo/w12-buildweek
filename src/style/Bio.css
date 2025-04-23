@@ -16,8 +16,13 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    object-fit:cover;
     overflow: hidden;
+  }
+
+  .user-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .bio-container {
@@ -25,13 +30,31 @@
   }
   .camera-icon {
     position: absolute;
+    width: 40px;
+    height: 40px;
     top: 10px;
     right: 10px;
     font-size: 24px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 6px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
+    padding: 5px;
+    border-radius: 100%;
     cursor: pointer;
+  }
+
+  .camera-icon i {
+    color: #007bff; 
+    font-size: 20px;
+  }
+
+  .custom-dropdown-menu {
+    width: 250px; 
+  }
+
+  .custom-dropdown-item p {
+    white-space: normal; 
   }
   
