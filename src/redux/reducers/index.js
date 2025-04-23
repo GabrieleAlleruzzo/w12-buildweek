@@ -16,8 +16,11 @@ const initialState = {
     show: false
   },
   profiloMe: {
-    info: '',
-    image: ''
+    name:"",
+    surname: "",
+    title:"",
+    area:"",
+    image: null
   }
 }
 
