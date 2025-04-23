@@ -19,11 +19,10 @@ const initialState = {
 
     name:"",
     surname: "",
-    title:"",
-    area:"",
-    image: null
-  }
-
+    title: "",
+    area: "",
+    image: null,
+  },
 }
 
 const mainReducer = (state = initialState, action) => {
