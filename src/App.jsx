@@ -8,8 +8,16 @@ import { Col, Container, Row } from "react-bootstrap";
 function App() {
   return (
     <>
-      <Container fluid style={{ backgroundColor: "#2B3035" }}>
-        <MyNavbar />
+      <Container
+        fluid
+        style={{ backgroundColor: "#FFFFFF" }}
+        className="border border-1"
+      >
+        <Row>
+          <Col>
+            <MyNavbar />
+          </Col>
+        </Row>
       </Container>
       <Main />
     </>

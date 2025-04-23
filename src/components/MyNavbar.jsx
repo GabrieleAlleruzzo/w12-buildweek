@@ -38,9 +38,9 @@ const MyNavBar = function () {
           <Col xs={12} lg={9} className="p-0">
             <Navbar
               expand="lg"
-              className="bg-body-tertiary  w-100 d-flex justify-content-center"
-              bg="dark"
-              data-bs-theme="dark"
+              className="bg-light w-100 d-flex justify-content-center"
+              bg="light"
+              data-bs-theme="light"
             >
               <Container fluid className="align-items-center p-0 d-flex">
                 {" "}
@@ -50,7 +50,7 @@ const MyNavBar = function () {
                   {/* Icona LinkedIn */}
                   <Navbar.Brand href="#" className="me-2">
                     <i
-                      className="bi bi-linkedin"
+                      className="bi bi-linkedin text-primary"
                       style={{ fontSize: "2rem" }}
                     ></i>
                   </Navbar.Brand>
@@ -75,7 +75,7 @@ const MyNavBar = function () {
                     href="#"
                     className="d-flex flex-column align-items-center m-2 text-center d-md-none"
                   >
-                    <i className=" bi bi-search"></i>
+                    <i className=" bi bi-search text-secondary"></i>
                     <small className="d-none d-lg-block">Search</small>
                   </Nav.Link>
                   <Nav.Link
@@ -83,50 +83,60 @@ const MyNavBar = function () {
                     className="d-flex flex-column align-items-center m-2 text-center"
                   >
                     <i
-                      className="bi bi-house-door"
+                      className="bi bi-house-door text-secondary"
                       style={{ fontSize: "1rem" }}
                     ></i>
-                    <small className="d-none d-lg-block">Home</small>
+                    <small className="d-none d-lg-block text-secondary">
+                      Home
+                    </small>
                   </Nav.Link>
                   <Nav.Link
                     href="#"
                     className="d-flex flex-column align-items-center m-2 text-center"
                   >
                     <i
-                      className="bi bi-people-fill"
+                      className="bi bi-people-fill text-secondary"
                       style={{ fontSize: "1em" }}
                     ></i>
-                    <small className="d-none d-lg-block">Rete</small>
+                    <small className="d-none d-lg-block text-secondary">
+                      Rete
+                    </small>
                   </Nav.Link>
                   <Nav.Link
                     href="#"
                     className="d-flex flex-column align-items-center m-2 text-center"
                   >
                     <i
-                      className="bi bi-suitcase-lg-fill"
+                      className="bi bi-suitcase-lg-fill text-secondary"
                       style={{ fontSize: "1em" }}
                     ></i>
-                    <small className="d-none d-lg-block">Lavoro</small>
+                    <small className="d-none d-lg-block text-secondary">
+                      Lavoro
+                    </small>
                   </Nav.Link>
                   <Nav.Link
                     href="#"
                     className="d-flex flex-column align-items-center m-2 text-center"
                   >
                     <i
-                      className="bi bi-chat-dots-fill"
+                      className="bi bi-chat-dots-fill text-secondary"
                       style={{ fontSize: "1em" }}
                     ></i>
-                    <small className="d-none d-lg-block">Messaggistica</small>
+                    <small className="d-none d-lg-block text-secondary">
+                      Messaggistica
+                    </small>
                   </Nav.Link>
                   <Nav.Link
                     href="#"
                     className="d-flex flex-column align-items-center m-2 text-center"
                   >
                     <i
-                      className="bi bi-bell-fill"
+                      className="bi bi-bell-fill text-secondary"
                       style={{ fontSize: "1em" }}
                     ></i>
-                    <small className="d-none d-lg-block">Notifiche</small>
+                    <small className="d-none d-lg-block text-secondary">
+                      Notifiche
+                    </small>
                   </Nav.Link>
                   {/* Profilo Utente */}
                   <div className=" m-4 d-lg-none">
@@ -139,7 +149,9 @@ const MyNavBar = function () {
                             className="rounded-circle mb-1"
                             style={{ width: "20px", height: "20px" }}
                           />
-                          <small className="d-none d-lg-block">Tu</small>
+                          <small className="d-none d-lg-block text-secondary">
+                            Tu
+                          </small>
                         </div>
                       }
                       id="nav-dropdown-user"
@@ -295,7 +307,7 @@ const MyNavBar = function () {
                       title={
                         <div className="d-flex flex-column align-items-center p-0">
                           <i
-                            className="bi bi-grid-3x3-gap "
+                            className="bi bi-grid-3x3-gap text-secondary"
                             style={{ fontSize: "1.5em" }}
                           ></i>
                         </div>

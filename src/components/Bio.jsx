@@ -60,7 +60,7 @@ const Bio = () => {
     <div className="bio-wrapper mt-2">
       <div
         className="cover-image"
-        style={{ backgroundImage: `url(${coverImage})` }}
+        style={{ backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)` }}
       >
         <span className="camera-icon">
           <i className="bi bi-camera"></i>
@@ -68,13 +68,17 @@ const Bio = () => {
       </div>
 
       <Container className="bio-container">
-        <div className="mt-3">
+        <div className="mt-3 d-flex">
           <div className="user-image">
-            <img src={profilo.image} alt="Foto profilo" />
+            <img
+              src={profilo.image}
+              alt="Foto profilo"
+              className="mx-auto d-block"
+            />
           </div>
         </div>
-        <Row>
-          <Col xs="8">
+        <Row className=" mt-2">
+          <Col xs="12" sm="8">
             <h2 className="profile-name">
               {profilo.name} {profilo.surname}
             </h2>
@@ -83,16 +87,15 @@ const Bio = () => {
           </Col>
         </Row>
 
-        <Row className="button-row">
-          <Col xs="auto">
+        <Row className=" gap-2">
+          <Col xs={12} md="auto" className="mb-2 mb-md-0">
             <Button
               variant="primary"
-              className="rounded-pill"
+              className="rounded-pill btn-mobile-full "
               onClick={handleDropdownToggle1}
             >
               Disponibile per
             </Button>
-            {/* Dropdown Menu */}
             {showMenuDisponibilePer && (
               <Dropdown.Menu className="custom-dropdown-menu" show>
                 <Dropdown.Item href="#action1" className="custom-dropdown-item">
@@ -120,30 +123,30 @@ const Bio = () => {
             )}
           </Col>
 
-          <Col xs="auto">
+          <Col xs={12} md="auto" className="mb-2 mb-md-0">
             <Button
               variant="outline-primary"
-              className="rounded-pill"
+              className="rounded-pill btn-mobile-full"
               onClick={openAddProfilo}
             >
               Aggiungi Sezione Del Profilo
             </Button>
           </Col>
 
-          <Col xs="auto">
+          <Col xs={12} md="auto" className="mb-2 mb-md-0">
             <Button
               variant="outline-primary"
-              className="rounded-pill"
+              className="rounded-pill btn-mobile-full"
               onClick={openImproveProfilo}
             >
               Migliora Profilo
             </Button>
           </Col>
 
-          <Col xs="auto">
+          <Col xs={12} md="auto" className="mb-2 mb-md-0">
             <Button
               variant="outline-secondary"
-              className="rounded-pill"
+              className="rounded-pill btn-mobile-full"
               onClick={handleDropdownToggle2}
             >
               Risorse
