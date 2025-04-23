@@ -1,15 +1,14 @@
 /* GENERALE */
 
 :root {
-    background-color: #f4f2ee;
+  background-color: #f4f2ee;
 }
 
 .main {
-    background-color: #f4f2ee;
+  background-color: #f4f2ee;
 }
 
 /* NAVBAR? */
-
 
 /* ZONA CENTRALE */
 
@@ -17,33 +16,32 @@
 /*hover ai <li> del modale competenze*/
 
 .skill-items {
-    transition: all 0.3s ease;
-}
-  
-.skill-items:hover {
-    background-color: #f0f0f0; /* colore di sfondo al passaggio */
-    transform: scale(1.05); /* leggera ingrandita */
-    border-color: #007bff; /* cambia il bordo (opzionale) */
+  transition: all 0.3s ease;
 }
 
+.skill-items:hover {
+  background-color: #f0f0f0; /* colore di sfondo al passaggio */
+  transform: scale(1.05); /* leggera ingrandita */
+  border-color: #007bff; /* cambia il bordo (opzionale) */
+}
 
 /* esperienze */
 
 .dropdown-toggle::after {
-    content: none !important;
+  content: none !important;
 }
-  
-  
-.bi-plus-lg:hover, .bi-pen:hover {
+
+.bi-plus-lg:hover,
+.bi-pen:hover {
   background-color: #f3f3f3;
   border-radius: 50%;
 }
-  
-.bi-plus-lg:active, .bi-pen:active {
+
+.bi-plus-lg:active,
+.bi-pen:active {
   background-color: #e0dfdf;
   border-radius: 50%;
 }
-  
 
 /* SIDEBAR */
 /* bottone fine sidebar */
@@ -57,5 +55,9 @@
   background-color: rgba(185, 185, 185, 0.452);
 }
 
-/* FOOTER ? */
+#navbar {
+  max-width: 1920px;
+  margin: auto;
+}
 
+/*FOOTER ? */

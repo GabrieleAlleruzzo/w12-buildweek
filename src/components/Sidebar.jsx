@@ -1,12 +1,12 @@
-import { useEffect } from "react"
-import { Container, Row, Col } from "react-bootstrap"
-import Button from "react-bootstrap/Button"
-import Card from "react-bootstrap/Card"
-import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import { useDispatch, useSelector } from "react-redux";
 
 const Sidebar = () => {
-  const dispatch = useDispatch()
-  const profiliColleghi = useSelector((state) => state.profiliColleghi)
+  const dispatch = useDispatch();
+  const profiliColleghi = useSelector((state) => state.profiliColleghi);
 
   useEffect(() => {
     const userIds = [
@@ -16,10 +16,10 @@ const Sidebar = () => {
       "68074850d451810015ce83d0", // Gabriele
       "68074291d451810015ce83cc", // Vincenza
       "6807a244d451810015ce83ef", // Pietro
-    ]
+    ];
 
-    const profili = []
-    let completedRequests = 0 // Contatore per le richieste completate
+    const profili = [];
+    let completedRequests = 0; // Contatore per le richieste completate
 
     userIds.forEach((userId) => {
       fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}`, {
@@ -30,24 +30,24 @@ const Sidebar = () => {
       })
         .then((response) => {
           if (response.ok) {
-            return response.json()
+            return response.json();
           } else {
-            throw new Error("Errore nella risposta del server")
+            throw new Error("Errore nella risposta del server");
           }
         })
         .then((data) => {
-          profili.push(data)
-          completedRequests++
+          profili.push(data);
+          completedRequests++;
 
           if (completedRequests === userIds.length) {
-            dispatch({ type: "SET_PROFILI_COLLEGHI", payload: profili })
+            dispatch({ type: "SET_PROFILI_COLLEGHI", payload: profili });
           }
         })
         .catch((error) => {
-          console.log("Errore nella fetch:", error)
-        })
-    })
-  }, [dispatch])
+          console.log("Errore nella fetch:", error);
+        });
+    });
+  }, [dispatch]);
 
   return (
     <Container className="d-flex flex-column m-0">
@@ -157,7 +157,7 @@ const Sidebar = () => {
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
