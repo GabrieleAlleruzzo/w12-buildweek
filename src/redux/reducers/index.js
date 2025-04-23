@@ -16,7 +16,6 @@ const initialState = {
   },
   profiloMe: {
 
-=======
     name:"",
     surname: "",
     title:"",
