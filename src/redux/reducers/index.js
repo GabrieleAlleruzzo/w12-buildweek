@@ -14,6 +14,10 @@ const initialState = {
     bodyType:"",
     footer:"",
     show: false
+  },
+  profiloMe: {
+    info: '',
+    image: ''
   }
 }
 
@@ -39,6 +43,11 @@ const mainReducer = (state = initialState, action) => {
           ...state,
           modalContent: initialState.modalContent,
       }
+      case "GET_PROFILE_ME":
+        return {
+          ...state,
+          profiloMe: action.payload,
+        }
 
     default:
       return state
