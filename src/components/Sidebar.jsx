@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 const Sidebar = () => {
   return (
     <>
-      <Container className="d-flex flex-column m-0 ">
+      <Container fluid className="d-flex flex-column  ">
         <Row>
           <Col>
             {/* lingua e link profilo*/}

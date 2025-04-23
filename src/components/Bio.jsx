@@ -49,7 +49,7 @@ const Bio = () => {
   };
 
   return (
-    <div className="bio-wrapper">
+    <div className="bio-wrapper mt-2">
       <div
         className="cover-image"
         style={{ backgroundImage: `url(${coverImage})` }}
