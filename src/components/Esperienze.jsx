@@ -139,7 +139,7 @@ const Esperienze = function () {
         
 
         
-            <Row>
+            <Row key={exp._id}>
                 <Col xs={12}>
                 <Card className="d-flex flex-row align-items-start p-2 border-0">
                     <Card.Img

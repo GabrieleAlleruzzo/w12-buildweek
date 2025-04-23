@@ -60,7 +60,7 @@ const Bio = () => {
     <div className="bio-wrapper mt-2">
       <div
         className="cover-image"
-        style={{ backgroundImage: `url(${coverImage})` }}
+        style={{ backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)` }}
       >
         <span className="camera-icon">
           <i className="bi bi-camera"></i>
