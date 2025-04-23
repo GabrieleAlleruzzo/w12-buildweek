@@ -6,7 +6,7 @@ const MyNavBar = function () {
     <Navbar expand="lg" className="bg-body-tertiary mb-3" bg="dark" data-bs-theme="dark">
     <Container fluid className="align-items-center justify-content-start">
 
-      {/* Logo + Search vicini */}
+      {/* Logo + Search */}
       <div className="d-flex align-items-center me-5">
         {/* Icona LinkedIn */}
         <Navbar.Brand href="#" className="me-2">
