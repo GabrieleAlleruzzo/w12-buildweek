@@ -58,3 +58,19 @@
     white-space: normal; 
   }
   
+
+  @media (max-width: 767.98px) {
+    .btn-mobile-full {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .custom-dropdown-menu {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      right: auto !important;
+    }
+  }
+
+ 
