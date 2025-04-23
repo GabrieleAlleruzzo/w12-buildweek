@@ -1,11 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import AddProfiloBody from "./componentsBio.jsx/AddProfileBody";
 import ImprovedProfileBody from "./componentsBio.jsx/ImprovedProfiloBody";
-
-const modalBodies = {
-  aggiungiProfilo: <AddProfiloBody />,
-  miglioraProfilo: <ImprovedProfileBody />,
+import EditProfileBody from "./componentsBio.jsx/EditProfileBody";
+const getModalBody = (bodyType, profilo) => {
+  switch (bodyType) {
+    case "aggiungiProfilo":
+      return <AddProfiloBody />;
+    case "miglioraProfilo":
+      return <ImprovedProfileBody />;
+    case "modificaProfilo":
+      return <EditProfileBody profilo={profilo} />;
+    default:
+      return <p>Contenuto non disponibile</p>;
+  }
 };
 
 const DynamicModal = () => {
@@ -23,19 +31,11 @@ const DynamicModal = () => {
       </Modal.Header>
 
       <Modal.Body>
-        {modalBodies[modalData?.bodyType] || <p>Contenuto non disponibile</p>}
+        {getModalBody[modalData?.bodyType] || <p>Contenuto non disponibile</p>}
+        {getModalBody(modalData?.bodyType, modalData?.profilo)}
       </Modal.Body>
 
-      {modalData?.footer && (
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Chiudi
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Salva modifiche
-          </Button>
-        </Modal.Footer>
-      )}
+      {modalData?.footer && <Modal.Footer></Modal.Footer>}
     </Modal>
   );
 };

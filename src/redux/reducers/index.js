@@ -57,6 +57,7 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         profiliColleghi: action.payload,
       }
+     
 
     default:
       return state
