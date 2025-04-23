@@ -10,7 +10,7 @@ function App() {
     <>
       <Container
         fluid
-        style={{ backgroundColor: "#FFFFFF" }}
+        style={{ backgroundColor: "#F8F9FA" }}
         className="border border-1"
       >
         <Row>
