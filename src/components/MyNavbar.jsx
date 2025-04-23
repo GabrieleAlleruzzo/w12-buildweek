@@ -8,13 +8,34 @@ import {
   Col,
 } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import React, { useState, useRef, useEffect } from "react";
 
 const MyNavBar = function () {
+  const [showUserDropdown, setShowUserDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleUserDropdown = () => {
+    setShowUserDropdown(!showUserDropdown);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowUserDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
   return (
     <>
       <Container id="navbar">
         <Row className="justify-content-center ">
-          <Col xs={12} lg={9} className="px-4">
+          <Col xs={12} lg={9} className="p-0">
             <Navbar
               expand="lg"
               className="bg-body-tertiary  w-100 d-flex justify-content-center"
@@ -36,7 +57,7 @@ const MyNavBar = function () {
 
                   {/* Barra di ricerca */}
                   <Form
-                    className="d-none d-md-flex flex-grow-0 d-none d-md-block"
+                    className="d-none d-lg-flex d-none d-md-block"
                     style={{ width: "250px" }}
                   >
                     <Form.Control
@@ -48,11 +69,11 @@ const MyNavBar = function () {
                   </Form>
                 </div>
                 {/* DESTRA: Icone + Tu + Le mie aziende + Premium */}
-                <Nav className="d-flex flex-row align-items-center ms-auto">
+                <Nav className="d-flex flex-row align-items-center ms-auto justify-content-center">
                   {" "}
                   <Nav.Link
                     href="#"
-                    className="d-flex flex-column align-items-center m-2 text-center  d-md-none"
+                    className="d-flex flex-column align-items-center m-2 text-center d-md-none"
                   >
                     <i className=" bi bi-search"></i>
                     <small className="d-none d-lg-block">Search</small>
@@ -108,83 +129,166 @@ const MyNavBar = function () {
                     <small className="d-none d-lg-block">Notifiche</small>
                   </Nav.Link>
                   {/* Profilo Utente */}
-                  <NavDropdown
-                    title={
-                      <div className="d-flex flex-column align-items-center">
-                        <img
-                          src="http://localhost:5173/src/assets/avatarVuoto.webp?t=1745393890655"
-                          alt="Avatar"
-                          className="rounded-circle mb-1"
-                          style={{ width: "20px", height: "20px" }}
-                        />
-                        <small className="d-none d-lg-block">Tu</small>
-                      </div>
-                    }
-                    id="nav-dropdown-user"
-                    className="me-2 text-center border-end pe-2"
-                  >
-                    {/* PARTE PROFILO */}
-                    <div className="px-3 py-2 text-start">
-                      <div className="d-flex align-items-center mb-2">
-                        <img
-                          src="https://via.placeholder.com/50"
-                          alt="Avatar"
-                          className="rounded-circle me-2"
-                          style={{ width: "50px", height: "50px" }}
-                        />
-                        <div>
-                          <div className="fw-bold">Nome Cognome</div>
-                          <div
-                            className="text-muted"
-                            style={{ fontSize: "0.8rem" }}
-                          >
-                            Content Moderator
+                  <div className=" m-4 d-lg-none">
+                    <NavDropdown
+                      title={
+                        <div className="d-flex flex-column align-items-center">
+                          <img
+                            src="http://localhost:5173/src/assets/avatarVuoto.webp?t=1745393890655"
+                            alt="Avatar"
+                            className="rounded-circle mb-1"
+                            style={{ width: "20px", height: "20px" }}
+                          />
+                          <small className="d-none d-lg-block">Tu</small>
+                        </div>
+                      }
+                      id="nav-dropdown-user"
+                      className=" text-center position-absolute z-3 icon-m"
+                    >
+                      {/* PARTE PROFILO */}
+                      <div className="px-3 py-2 text-start">
+                        <div className="d-flex align-items-center mb-2">
+                          <img
+                            src="https://via.placeholder.com/50"
+                            alt="Avatar"
+                            className="rounded-circle me-2"
+                            style={{ width: "50px", height: "50px" }}
+                          />
+                          <div>
+                            <div className="fw-bold">Nome Cognome</div>
+                            <div
+                              className="text-muted"
+                              style={{ fontSize: "0.8rem" }}
+                            >
+                              Content Moderator
+                            </div>
                           </div>
                         </div>
+
+                        <button
+                          className="btn btn-outline-primary w-100 mb-2"
+                          style={{ borderRadius: "25px", fontWeight: "bold" }}
+                        >
+                          Visualizza profilo
+                        </button>
                       </div>
 
-                      <button
-                        className="btn btn-outline-primary w-100 mb-2"
-                        style={{ borderRadius: "25px", fontWeight: "bold" }}
-                      >
-                        Visualizza profilo
-                      </button>
-                    </div>
+                      <NavDropdown.Divider />
 
-                    <NavDropdown.Divider />
+                      {/* SEZIONE ACCOUNT */}
+                      <div className="px-3 text-start">
+                        <small className="fw-bold text-muted">Account</small>
+                      </div>
+                      <NavDropdown.Item href="#">
+                        <i className="bi bi-award-fill text-warning me-2"></i>
+                        Prova 1 mese di Premium per 0 EUR
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#">
+                        Impostazioni e privacy
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#">Guida</NavDropdown.Item>
+                      <NavDropdown.Item href="#">Lingua</NavDropdown.Item>
 
-                    {/* SEZIONE ACCOUNT */}
-                    <div className="px-3 text-start">
-                      <small className="fw-bold text-muted">Account</small>
-                    </div>
-                    <NavDropdown.Item href="#">
-                      <i className="bi bi-award-fill text-warning me-2"></i>
-                      Prova 1 mese di Premium per 0 EUR
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#">
-                      Impostazioni e privacy
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#">Guida</NavDropdown.Item>
-                    <NavDropdown.Item href="#">Lingua</NavDropdown.Item>
+                      <NavDropdown.Divider />
 
-                    <NavDropdown.Divider />
+                      {/* SEZIONE GESTISCI */}
+                      <div className="px-3 text-start">
+                        <small className="fw-bold text-muted">Gestisci</small>
+                      </div>
+                      <NavDropdown.Item href="#">
+                        Post e attività
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#">
+                        Account per la pubblicazione di offerte
+                      </NavDropdown.Item>
 
-                    {/* SEZIONE GESTISCI */}
-                    <div className="px-3 text-start">
-                      <small className="fw-bold text-muted">Gestisci</small>
-                    </div>
-                    <NavDropdown.Item href="#">
-                      Post e attività
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#">
-                      Account per la pubblicazione di offerte
-                    </NavDropdown.Item>
+                      <NavDropdown.Divider />
 
-                    <NavDropdown.Divider />
+                      {/* Esci */}
+                      <NavDropdown.Item href="#">Esci</NavDropdown.Item>
+                    </NavDropdown>
+                  </div>
+                  {/* desktop */}
+                  <div className="d-none d-lg-block">
+                    <NavDropdown
+                      title={
+                        <div className="d-flex flex-column align-items-center">
+                          <img
+                            src="http://localhost:5173/src/assets/avatarVuoto.webp?t=1745393890655"
+                            alt="Avatar"
+                            className="rounded-circle "
+                            style={{ width: "20px", height: "20px" }}
+                          />
+                          <small className="d-none d-lg-block">Tu</small>
+                        </div>
+                      }
+                      id="nav-dropdown-user"
+                      className="me-2 text-center border-end pe-2 "
+                    >
+                      {/* PARTE PROFILO */}
+                      <div className="px-3 py-2 text-start">
+                        <div className="d-flex align-items-center mb-2">
+                          <img
+                            src="https://via.placeholder.com/50"
+                            alt="Avatar"
+                            className="rounded-circle me-2"
+                            style={{ width: "50px", height: "50px" }}
+                          />
+                          <div>
+                            <div className="fw-bold">Nome Cognome</div>
+                            <div
+                              className="text-muted"
+                              style={{ fontSize: "0.8rem" }}
+                            >
+                              Content Moderator
+                            </div>
+                          </div>
+                        </div>
 
-                    {/* Esci */}
-                    <NavDropdown.Item href="#">Esci</NavDropdown.Item>
-                  </NavDropdown>
+                        <button
+                          className="btn btn-outline-primary w-100 mb-2"
+                          style={{ borderRadius: "25px", fontWeight: "bold" }}
+                        >
+                          Visualizza profilo
+                        </button>
+                      </div>
+
+                      <NavDropdown.Divider />
+
+                      {/* SEZIONE ACCOUNT */}
+                      <div className="px-3 text-start">
+                        <small className="fw-bold text-muted">Account</small>
+                      </div>
+                      <NavDropdown.Item href="#">
+                        <i className="bi bi-award-fill text-warning me-2"></i>
+                        Prova 1 mese di Premium per 0 EUR
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#">
+                        Impostazioni e privacy
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#">Guida</NavDropdown.Item>
+                      <NavDropdown.Item href="#">Lingua</NavDropdown.Item>
+
+                      <NavDropdown.Divider />
+
+                      {/* SEZIONE GESTISCI */}
+                      <div className="px-3 text-start">
+                        <small className="fw-bold text-muted">Gestisci</small>
+                      </div>
+                      <NavDropdown.Item href="#">
+                        Post e attività
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#">
+                        Account per la pubblicazione di offerte
+                      </NavDropdown.Item>
+
+                      <NavDropdown.Divider />
+
+                      {/* Esci */}
+                      <NavDropdown.Item href="#">Esci</NavDropdown.Item>
+                    </NavDropdown>
+                  </div>
+                  {/* bho */}
                   {/* Le mie aziende */}
                   <div className="d-none d-lg-block ">
                     <NavDropdown

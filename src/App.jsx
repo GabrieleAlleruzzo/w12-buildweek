@@ -9,11 +9,7 @@ function App() {
   return (
     <>
       <Container fluid style={{ backgroundColor: "#2B3035" }}>
-        <Row>
-          <Col>
-            <MyNavbar />
-          </Col>
-        </Row>
+        <MyNavbar />
       </Container>
       <Main />
     </>

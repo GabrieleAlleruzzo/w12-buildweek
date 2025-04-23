@@ -5,6 +5,7 @@ import Competenze from "./Competenze";
 import Info from "./Info";
 import Sidebar from "./Sidebar";
 import Bio from "./Bio";
+import Footer from "./Footer";
 import DynamicModal from "./DynamicModal";
 
 const Main = function () {
@@ -23,6 +24,9 @@ const Main = function () {
 
         <Col xs={12} lg={3}>
           <Sidebar />
+        </Col>
+        <Col xs={12}>
+          <Footer />
         </Col>
       </Row>
     </Container>
