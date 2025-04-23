@@ -1,4 +1,3 @@
-
 const initialState = {
   competenze: ["HTML", "CSS", "JAVASCRIPT", "BOOTSTRAP", "REACT", "REDUX"],
   formazione: [
@@ -11,17 +10,20 @@ const initialState = {
   ],
   modalContent: {
     title: "",
-    bodyType:"",
-    footer:"",
-    show: false
+    bodyType: "",
+    footer: "",
+    show: false,
   },
   profiloMe: {
+
+=======
     name:"",
     surname: "",
     title:"",
     area:"",
     image: null
   }
+
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -36,21 +38,26 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         formazione: [...state.formazione, action.payload],
       }
-      case "OPEN_DYNAMIC_MODAL":
-        return {
-          ...state,
-          modalContent: action.payload,
+    case "OPEN_DYNAMIC_MODAL":
+      return {
+        ...state,
+        modalContent: action.payload,
       }
-      case "CLOSE_DYNAMIC_MODAL":
-        return {
-          ...state,
-          modalContent: initialState.modalContent,
+    case "CLOSE_DYNAMIC_MODAL":
+      return {
+        ...state,
+        modalContent: initialState.modalContent,
       }
-      case "GET_PROFILE_ME":
-        return {
-          ...state,
-          profiloMe: action.payload,
-        }
+    case "GET_PROFILE_ME":
+      return {
+        ...state,
+        profiloMe: action.payload,
+      }
+    case "SET_PROFILI_COLLEGHI":
+      return {
+        ...state,
+        profiliColleghi: action.payload,
+      }
 
     default:
       return state
