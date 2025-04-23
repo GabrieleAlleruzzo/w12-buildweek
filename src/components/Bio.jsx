@@ -78,7 +78,7 @@ const Bio = () => {
             <Button
               variant="primary"
               className="rounded-pill"
-              onClick={handleDropdownToggle1} // Aggiunto per il toggle
+              onClick={handleDropdownToggle1}
             >
               Disponibile per
             </Button>
