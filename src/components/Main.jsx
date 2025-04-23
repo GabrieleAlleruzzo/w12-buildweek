@@ -1,10 +1,11 @@
-import { Col, Container, Row } from "react-bootstrap"
-import Esperienze from "./Esperienze"
-import Formazione from "./Formazione"
-import Competenze from "./Competenze"
-import Info from "./Info"
-import Sidebar from "./Sidebar"
-import Bio from "./Bio"
+import { Col, Container, Row } from "react-bootstrap";
+import Esperienze from "./Esperienze";
+import Formazione from "./Formazione";
+import Competenze from "./Competenze";
+import Info from "./Info";
+import Sidebar from "./Sidebar";
+import Bio from "./Bio";
+import DynamicModal from "./DynamicModal";
 
 const Main = function () {
   return (
@@ -13,6 +14,7 @@ const Main = function () {
         <Col xs={12} md={6}>
           {/* altri componenti */}
           <Bio />
+          <DynamicModal />
           <Info />
           <Esperienze />
           <Formazione />
@@ -24,7 +26,7 @@ const Main = function () {
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

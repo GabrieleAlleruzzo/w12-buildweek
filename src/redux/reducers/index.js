@@ -9,6 +9,12 @@ const initialState = {
       img: "https://placedog.net/60/60",
     },
   ],
+  modalContent: {
+    title: "",
+    bodyType:"",
+    footer:"",
+    show: false
+  }
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -22,6 +28,16 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         formazione: [...state.formazione, action.payload],
+      }
+      case "OPEN_DYNAMIC_MODAL":
+        return {
+          ...state,
+          modalContent: action.payload,
+      }
+      case "CLOSE_DYNAMIC_MODAL":
+        return {
+          ...state,
+          modalContent: initialState.modalContent,
       }
 
     default:
