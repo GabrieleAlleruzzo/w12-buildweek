@@ -6,38 +6,39 @@ import {
   Form,
   Row,
   Col,
-} from "react-bootstrap";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import React, { useState, useRef, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProfiloMe } from "../redux/actions";
+} from "react-bootstrap"
+import "bootstrap-icons/font/bootstrap-icons.css"
+import React, { useState, useRef, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchProfiloMe } from "../redux/actions"
+import { NavLink } from "react-router-dom"
 
 const MyNavBar = function () {
-  const [showUserDropdown, setShowUserDropdown] = useState(false);
-  const dropdownRef = useRef(null);
-  const dispatch = useDispatch();
-  const profilo = useSelector((state) => state.profiloMe); // accedi allo stato del profilo
+  const [showUserDropdown, setShowUserDropdown] = useState(false)
+  const dropdownRef = useRef(null)
+  const dispatch = useDispatch()
+  const profilo = useSelector((state) => state.profiloMe) // accedi allo stato del profilo
 
   const toggleUserDropdown = () => {
-    setShowUserDropdown(!showUserDropdown);
-  };
+    setShowUserDropdown(!showUserDropdown)
+  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowUserDropdown(false);
+        setShowUserDropdown(false)
       }
-    };
+    }
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownRef]);
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [dropdownRef])
 
   useEffect(() => {
-    dispatch(fetchProfiloMe());
-  }, [dispatch]);
+    dispatch(fetchProfiloMe())
+  }, [dispatch])
 
   return (
     <>
@@ -108,7 +109,13 @@ const MyNavBar = function () {
                     </small>
                   </Nav.Link>
                   <Nav.Link
-                    href="#"
+                    onClick={() => {
+                      if (window.location.pathname === "/jobs") {
+                        window.location.href = "/" // Torna alla home se già sei su /jobs
+                      } else {
+                        window.location.href = "/jobs" // Altrimenti vai su /jobs
+                      }
+                    }}
                     className="d-flex flex-column align-items-center m-2 text-center"
                   >
                     <i
@@ -184,9 +191,7 @@ const MyNavBar = function () {
                         <div className="px-3 py-2 text-start">
                           <div className="d-flex align-items-center mb-2">
                             <img
-                              src={
-                                profilo.image
-                              }
+                              src={profilo.image}
                               alt="Avatar"
                               className="rounded-circle me-2"
                               style={{ width: "50px", height: "50px" }}
@@ -254,9 +259,7 @@ const MyNavBar = function () {
                     title={
                       <div className="d-flex flex-column align-items-center">
                         <img
-                          src={
-                            profilo.image
-                          }
+                          src={profilo.image}
                           alt="Avatar"
                           className="rounded-circle"
                           style={{ width: "20px", height: "20px" }}
@@ -287,6 +290,12 @@ const MyNavBar = function () {
                             style={{ fontSize: "0.8rem" }}
                           >
                             {profilo.title || "Ruolo professionale"}
+                          </div>
+                          <div
+                            className="text-muted"
+                            style={{ fontSize: "0.8rem" }}
+                          >
+                            {profilo.area || "Italia"}
                           </div>
                         </div>
                       </div>
@@ -394,7 +403,7 @@ const MyNavBar = function () {
         </Row>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default MyNavBar;
+export default MyNavBar
