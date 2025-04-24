@@ -5,7 +5,7 @@ export const ProfileAPI = async (ProfiloAggiornato) => {
             headers:{
                 "Content-Type": "application/json",
                 Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4Y2QwMTk1ODc4ZjAwMTVmNGExZTciLCJpYXQiOjE3NDU0MDcyMzMsImV4cCI6MTc0NjYxNjgzM30.h9l--SCZDROv8wqUAn2r0_imBXnnIugn3yt4Mv1X21A"
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4OTY3MDk1ODc4ZjAwMTVmNGExYjkiLCJpYXQiOjE3NDUzOTMyNjQsImV4cCI6MTc0NjYwMjg2NH0.dVSiLU98dFjQrSCo3MLWZvbclhG9fHU5ZfGfsApK7EM"
             },
             body: JSON.stringify(ProfiloAggiornato)
         });
