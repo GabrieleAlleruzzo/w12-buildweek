@@ -1,11 +1,12 @@
 import React, { useState } from "react"; // Importare useState
-import { Container, Row, Col, Button, Dropdown } from "react-bootstrap"; // Importare Dropdown
+import { Container, Row, Col, Button, Dropdown, Modal } from "react-bootstrap"; // Importare Dropdown
 import "../style/Bio.css";
 
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchProfiloMe } from "../redux/actions";
+import UploadImage from './UploadImage';
 
 const modalContents = {
   content1: {
@@ -25,6 +26,10 @@ const modalContents = {
 const Bio = () => {
   const dispatch = useDispatch();
   const profilo = useSelector((state) => state.profiloMe);
+
+  const [showImageModal, setShowImageModal] = useState(false);
+const handleOpenImageModal = () => setShowImageModal(true);
+const handleCloseImageModal = () => setShowImageModal(false);
 
   useEffect(() => {
     dispatch(fetchProfiloMe());
@@ -57,16 +62,55 @@ const Bio = () => {
 
   return (
     <div className="bio-wrapper bg-white rounded-2 border m-3 p-3">
-      <div
+
+    <div
+        className="cover-image"
+        style={{
+          backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)`,
+        }}
+      >
+        
+            <span className="camera-icon">
+          <i className="bi bi-camera"></i>
+        </span>
+      </div>
+
+      
+
+      {/* <div
         className="cover-image"
         style={{
           backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)`,
         }}
       >
         <span className="camera-icon">
-          <i className="bi bi-camera"></i>
+                
         </span>
-      </div>
+      </div> */}
+           {/*  <div
+        className="cover-image"
+        style={{
+          backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)`,
+          position: "relative",
+        }}
+      >
+        
+      </div> */}
+
+      <Modal show={showImageModal} onHide={handleCloseImageModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Carica una nuova immagine</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <UploadImage userId={"6808967095878f0015f4a1b9"} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseImageModal}>
+            Chiudi
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      
 
       <Container className="bio-container">
         <div className="d-flex flex-column align-items-start">
@@ -74,6 +118,17 @@ const Bio = () => {
             <img src={profilo.image} alt="Foto profilo" className="d-block" />
           </div>
           <div className="w-100 d-flex justify-content-end">
+            {/* giusto */}
+          <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic" className="bg-transparent text-black border-0">
+                  <i className="bi bi-plus-lg p-2 fs-4"></i>
+              </Dropdown.Toggle>
+               <Dropdown.Menu>
+               <Dropdown.Item onClick={handleOpenImageModal}>Carica nuova immagine</Dropdown.Item>
+              </Dropdown.Menu>
+           </Dropdown>
+
+
             <i
               className="bi bi-pen p-2 fs-5"
               style={{ cursor: "pointer" }}
