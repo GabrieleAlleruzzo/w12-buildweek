@@ -125,7 +125,7 @@ const Sidebar = () => {
                   profiliColleghi.map((profilo) => (
                     <div key={profilo._id}>
                       <Card className="border-0 d-flex flex-row">
-                        <Col xs={3}>
+                        <Col xs={3} lg={12} >
                           <Card.Img
                             src={
                               profilo.image ||
@@ -139,7 +139,7 @@ const Sidebar = () => {
                             }}
                           />
                         </Col>
-                        <Col xs={9}>
+                        <Col xs={9} lg={12} >
                           <Card.Body>
                             <Card.Title>
                               <strong>
