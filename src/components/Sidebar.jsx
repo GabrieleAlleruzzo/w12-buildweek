@@ -89,7 +89,7 @@ const Sidebar = () => {
       <Row>
         <Col xs={12}>
           {/* Lingua e URL */}
-          <Container fluid className="rounded border border-2 m-1 p-4 bg-white">
+          <Container fluid className="rounded border border-1 m-1 p-4 bg-white">
             <Row>
               <Col xs={12} className="d-flex justify-content-between">
                 <h3>Lingua del profilo</h3>
@@ -103,14 +103,14 @@ const Sidebar = () => {
                 <h3>Profilo pubblico e URL</h3>
                 <i className="bi bi-pen"></i>
               </Col>
-              <Col id="linkContainer"></Col>
+              <Col id="linkContainer" className="d-flex flex-wrap"></Col>
             </Row>
           </Container>
 
           {/* Suggeriti */}
           <Container
             fluid
-            className="rounded border border-2 m-1 p-4 pb-0 rounded-bottom-0 bg-white mb-0 pb-0 border-bottom-0"
+            className="rounded border border-1 m-1 p-4 pb-0 rounded-bottom-0 bg-white mb-0 pb-0 border-bottom-0"
           >
             <Row>
               <Col>
@@ -147,7 +147,7 @@ const Sidebar = () => {
                             </Card.Text>
                             <Button
                               variant="light"
-                              className="rounded-5 border-2 border-dark"
+                              className="rounded-5 border-1 border-dark"
                             >
                               <i className="bi bi-person-add"></i> Collegati
                             </Button>
@@ -161,7 +161,7 @@ const Sidebar = () => {
             </Row>
           </Container>
           <div className="w-100 mt-0 m-1">
-            <button className="border border-2 rounded-5 rounded-top-0 w-100 text-secondary text-center bg-white">
+            <button className="border border-1 rounded-5 rounded-top-0 w-100 text-secondary text-center bg-white">
               <p className="m-2">
                 <strong>
                   <a
