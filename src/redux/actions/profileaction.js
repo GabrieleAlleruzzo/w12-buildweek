@@ -1,4 +1,4 @@
-import { ProfileAPI } from "../../components/api/profile";
+import { ProfileAPI } from "../components/api/profile";
 
 export const aggiornaProfilo = (profiloAggiornato) => {
   return async (dispatch) => {
