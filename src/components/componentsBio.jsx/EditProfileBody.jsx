@@ -69,11 +69,20 @@ const EditProfileBody = ({ profilo }) => {
         <Button
           className="mt-3"
           variant="primary"
-          onClick={() => {
-            dispatch(aggiornaProfilo(formData));
-            console.log(formData.title);
-            handleClose(); // Chiudi il modal dopo il salvataggio
-            dispatch(getProfiloMe());
+          onClick={async () => {
+            try {
+              const profiloAggiornato = await dispatch(
+                aggiornaProfilo(formData)
+              );
+              console.log("Profilo aggiornato:", profiloAggiornato);
+
+              // opzionale se vuoi ricaricare tutto
+
+              handleClose(); // chiudi solo dopo tutto
+            } catch (error) {
+              console.error("Errore nell'aggiornamento:", error);
+              // qui puoi mostrare un toast o alert
+            }
           }}
         >
           Salva modifiche
