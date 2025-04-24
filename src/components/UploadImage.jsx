@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchProfiloMe } from "../redux/actions";
 
 const UploadImage = ({ userId }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -17,6 +21,7 @@ const UploadImage = ({ userId }) => {
     const formData = new FormData();
     formData.append("profile", selectedFile);
 
+    setLoading(true);
     try {
       const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`, {
         method: "POST",
@@ -29,16 +34,25 @@ const UploadImage = ({ userId }) => {
       if (!response.ok) throw new Error("Errore durante il caricamento dell'immagine");
 
       setMessage("Immagine caricata con successo!");
+      setSelectedFile(null);
+
+   
+      dispatch(fetchProfiloMe());
+
     } catch (error) {
       console.error(error);
       setMessage("Errore nel caricamento.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div>
+    <div className="mt-3">
       <input type="file" accept="image/*" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Carica immagine</button>
+      <button onClick={handleUpload} disabled={loading}>
+        {loading ? "Caricamento..." : "Carica immagine"}
+      </button>
       <p>{message}</p>
     </div>
   );
