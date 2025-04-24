@@ -1,3 +1,4 @@
+
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
@@ -7,6 +8,7 @@ import { Col, Container, Row } from "react-bootstrap"
 import { Routes, Route } from "react-router-dom"
 import UploadImage from "./components/UploadImage"
 import Jobs from "./components/jobs"
+
 
 function App() {
   return (
