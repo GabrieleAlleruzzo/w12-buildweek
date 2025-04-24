@@ -15,14 +15,13 @@ const initialState = {
     show: false,
   },
   profiloMe: {
-
-
-    name:"",
+    name: "",
     surname: "",
     title: "",
     area: "",
     image: null,
   },
+  profiliColleghi: [],
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -57,7 +56,6 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         profiliColleghi: action.payload,
       }
-     
 
     default:
       return state
