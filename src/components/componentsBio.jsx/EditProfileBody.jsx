@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { aggiornaProfilo } from "../../redux/actions/profileaction";
+import { aggiornaProfilo } from "../redux/actions/profileaction";
 
 import { Form, Button } from "react-bootstrap";
 import { getProfiloMe } from "../../redux/actions";
