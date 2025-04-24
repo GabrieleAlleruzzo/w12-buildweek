@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -7,6 +7,41 @@ import { useDispatch, useSelector } from "react-redux";
 const Sidebar = () => {
   const dispatch = useDispatch();
   const profiliColleghi = useSelector((state) => state.profiliColleghi);
+
+  useEffect(() => {
+    //funzione link dinamico
+    function creaLinkConUrlCorrente() {
+      // Ottiene l'URL corrente della pagina.
+      const urlCorrente = window.location.href;
+
+      // Crea un nuovo elemento <a>.
+      const link = document.createElement("a");
+
+      // Imposta l'attributo href del link all'URL corrente.
+      link.href = urlCorrente;
+
+      // Imposta il testo del link per visualizzare l'URL.
+      link.textContent = urlCorrente;
+      link.style.color = "#0078d7"; // Blu, tipico per i link
+      link.style.textDecoration = "underline"; // Sottolineatura
+      link.style.fontWeight = "bold"; // Grassetto
+
+      // Restituisce l'elemento <a> creato.
+      return link;
+    }
+
+    // Ottiene l'elemento del DOM dove vogliamo inserire il link.
+    const linkContainer = document.getElementById("linkContainer");
+
+    // Crea il link usando la funzione.
+    const link = creaLinkConUrlCorrente();
+
+    // Aggiunge il link al contenitore nell'HTML.
+    if (linkContainer) {
+      //aggiungo questo controllo
+      linkContainer.appendChild(link);
+    }
+  }, []); // <-- Aggiungo le parentesi vuote per far eseguire l'effetto solo al mount del componente
 
   useEffect(() => {
     const userIds = [
@@ -50,11 +85,11 @@ const Sidebar = () => {
   }, [dispatch]);
 
   return (
-    <Container className="d-flex flex-column m-0">
+    <Container fluid className="d-flex flex-column m-0">
       <Row>
-        <Col>
+        <Col xs={12}>
           {/* Lingua e URL */}
-          <Container className="rounded border border-2 m-1 p-4 bg-white">
+          <Container fluid className="rounded border border-2 m-1 p-4 bg-white">
             <Row>
               <Col xs={12} className="d-flex justify-content-between">
                 <h3>Lingua del profilo</h3>
@@ -68,16 +103,15 @@ const Sidebar = () => {
                 <h3>Profilo pubblico e URL</h3>
                 <i className="bi bi-pen"></i>
               </Col>
-              <Col>
-                <a href="https://www.linkedin.com/">
-                  Link-profilo-nome-cognome
-                </a>
-              </Col>
+              <Col id="linkContainer"></Col>
             </Row>
           </Container>
 
           {/* Suggeriti */}
-          <Container className="rounded border border-2 m-1 p-4 pb-0 rounded-bottom-0 bg-white">
+          <Container
+            fluid
+            className="rounded border border-2 m-1 p-4 pb-0 rounded-bottom-0 bg-white mb-0 pb-0 border-bottom-0"
+          >
             <Row>
               <Col>
                 <h4>Persone che potresti conoscere</h4>
@@ -123,27 +157,28 @@ const Sidebar = () => {
                       <div className="border-bottom border-1 my-4"></div>
                     </div>
                   ))}
-
-                <div className="w-100 mt-0 m-1">
-                  <button className="border border-2 rounded-5 rounded-top-0 w-100 text-secondary text-center bg-white">
-                    <p className="m-2">
-                      <strong>
-                        <a
-                          href="https://www.linkedin.com/"
-                          className="text-decoration-none text-muted"
-                        >
-                          Mostra tutto
-                        </a>
-                      </strong>
-                    </p>
-                  </button>
-                </div>
               </Col>
             </Row>
           </Container>
-
+          <div className="w-100 mt-0 m-1">
+            <button className="border border-2 rounded-5 rounded-top-0 w-100 text-secondary text-center bg-white">
+              <p className="m-2">
+                <strong>
+                  <a
+                    href="https://www.linkedin.com/"
+                    className="text-decoration-none text-muted"
+                  >
+                    Mostra tutto
+                  </a>
+                </strong>
+              </p>
+            </button>
+          </div>
           {/* Annuncio */}
-          <Container className="rounded border-1 m-1 p-0 border-dark-subtle">
+          <Container
+            fluid
+            className="rounded border-1 m-1 p-0 border-dark-subtle"
+          >
             <Row>
               <Col xs={12} className="mt-2">
                 <img
