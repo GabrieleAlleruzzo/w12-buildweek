@@ -5,6 +5,7 @@ import MyNavbar from "./components/MyNavbar";
 import Main from "./components/Main";
 import { Col, Container, Row } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
+import UploadImage from "./components/UploadImage";
 
 function App() {
   return (
