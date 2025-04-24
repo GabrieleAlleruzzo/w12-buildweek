@@ -11,6 +11,7 @@ const Esperienze = function () {
     // form
     const [role, setRole] = useState("")
     const [company, setCompany] = useState("")
+    const [tipo, setTipo] = useState("")
     const [startMonth, setStartMonth] = useState("")
     const [startYear, setStartYear] = useState("")
     const [endMonth, setEndMonth] = useState("")
@@ -43,8 +44,8 @@ const Esperienze = function () {
       mesi += 12
     }
   
-    const anniStr = anni > 0 ? `${anni} ann${anni === 1 ? "" : "i"}` : ""
-    const mesiStr = mesi > 0 ? `${mesi} mes${mesi === 1 ? "" : "i"}` : ""
+    const anniStr = anni > 0 ? `${anni} ann${anni === 1 ? "o" : "i"}` : ""
+    const mesiStr = mesi > 0 ? `${mesi} mes${mesi === 1 ? "o" : "i"}` : ""
 
     if (anniStr && mesiStr) return `${anniStr} e ${mesiStr}`
     if (anniStr) return anniStr
@@ -125,12 +126,60 @@ const Esperienze = function () {
         })
     }
 
+    /* fetch DELETE */
+
+    const deleteExperience = (id) => {
+      fetch(APIUrl + '/' + id, {
+        method: 'DELETE',
+        headers: {
+            Authorization: apiKey
+        }
+    })
+      .then(response => {
+        if (response.ok){
+          // qualcosa
+          alert('eliminato!')
+        } else {
+          throw new Error('già eliminato?')
+        }
+      })
+      .catch((err)=>{
+        console.log('errore cancellazione', err)
+      })
+    }
 
     useEffect(() => {
         getExperiences()
     }, [])
   
-  
+  /* fetch POST IMMAGINI EXP */
+
+  const changeImgExp = function (id, file) {
+    const apiImg = `https://striveschool-api.herokuapp.com/api/profile/6808967095878f0015f4a1b9/experiences/${id}/picture`
+
+    const formData = new FormData()
+    formData.append("experience", file)
+
+    fetch(apiImg, {
+      method: 'POST',
+      body: formData, 
+      headers: { 
+          "Authorization": apiKey,
+      }
+    })
+    .then((response) => {
+        if(response.ok){
+            console.log('immagine aggiornata!!')
+            getExperiences() 
+        } else {
+            throw new Error("errore nel caricamento dell'immagine")
+        }
+    })
+    .catch((error) => {
+        console.log('Upload fallito', error)
+    })
+
+  }
   
   
   
@@ -168,22 +217,69 @@ const Esperienze = function () {
 
         
 
+
         
             <Row key={exp._id}>
                 <Col xs={12}>
                 <Card className="d-flex flex-row align-items-start p-2 border-0">
                     <Card.Img
                     variant="left"
-                    src="https://placecats.com/60/60"
+                    src={exp.image}
                     style={{ objectFit: "cover" }}
                     className="mt-3"
+                    width={80}
+                    height={80}
                     />
                     <Card.Body className="p-2">
-                    <Card.Title className="mb-1">
+                    <Card.Title className="mb-1 d-flex justify-content-between">
                         {exp.role}
+
+                        <div className="d-flex">
+
+                        <input
+                      type="file"
+                      accept="image/*"
+                      style={{ display: "none" }}
+                      id={`file-upload-${exp._id}`}
+                      onChange={(e) => {
+                        const file = e.target.files[0]
+                        if (file) changeImgExp(exp._id, file)
+                      }}
+                      />
+                        
+
+                        <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic" className="bg-transparent text-black border-0 p-0">
+                            <i className="bi bi-x"></i>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item className="fw-semibold" onClick={() => deleteExperience(exp._id)}>Rimuovi</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic" className="bg-transparent text-black border-0 p-0">
+                            <i className="bi bi-card-image"></i>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                            <Dropdown.Item
+                              className="fw-semibold"
+                              onClick={() => {
+                                document.getElementById(`file-upload-${exp._id}`).click()
+                              }}
+                            >
+                              Carica immagine
+                            </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        
+                        </div>
+
+                        
                     </Card.Title>
                     <Card.Text className="mb-0 fw-semibold">
-                        {exp.company} &#183; Part-time
+                        {exp.company} &#183; {tipo}
                     </Card.Text>
                     <Card.Text className="mb-0 text-secondary">                      
                     {new Date(exp.startDate).toLocaleDateString("it-IT", { month: 'long', year: 'numeric' })} -{" "}
@@ -221,7 +317,7 @@ const Esperienze = function () {
 
             <Form.Group className="mb-3" controlId="formMese">
                 <Form.Label>Tipo di impiego</Form.Label>
-                <Form.Select>
+                <Form.Select value={tipo} onChange={(e) => setTipo(e.target.value)}>
                   <option>seleziona</option>
                   <option>A tempo pieno</option>
                   <option>Part-time</option>
