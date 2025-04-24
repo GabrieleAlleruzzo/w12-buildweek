@@ -6,38 +6,38 @@ import {
   Form,
   Row,
   Col,
-} from "react-bootstrap"
-import "bootstrap-icons/font/bootstrap-icons.css"
-import React, { useState, useRef, useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchProfiloMe } from "../redux/actions"
+} from "react-bootstrap";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import React, { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProfiloMe } from "../redux/actions";
 
 const MyNavBar = function () {
-  const [showUserDropdown, setShowUserDropdown] = useState(false)
-  const dropdownRef = useRef(null)
-  const dispatch = useDispatch()
-  const profilo = useSelector((state) => state.profiloMe) // accedi allo stato del profilo
+  const [showUserDropdown, setShowUserDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+  const dispatch = useDispatch();
+  const profilo = useSelector((state) => state.profiloMe); // accedi allo stato del profilo
 
   const toggleUserDropdown = () => {
-    setShowUserDropdown(!showUserDropdown)
-  }
+    setShowUserDropdown(!showUserDropdown);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowUserDropdown(false)
+        setShowUserDropdown(false);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [dropdownRef])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   useEffect(() => {
-    dispatch(fetchProfiloMe())
-  }, [dispatch])
+    dispatch(fetchProfiloMe());
+  }, [dispatch]);
 
   return (
     <>
@@ -151,14 +151,16 @@ const MyNavBar = function () {
                     <NavDropdown
                       title={
                         <div className="d-flex flex-column align-items-center">
-                          <img
-                            src={
-                              profilo.image || "https://via.placeholder.com/50"
-                            }
-                            alt="Avatar"
-                            className="rounded-circle me-2"
-                            style={{ width: "50px", height: "50px" }}
-                          />
+                          {
+                            <img
+                              src={
+                                profilo.image || "https://placedog.net/50/50"
+                              }
+                              alt="Avatar"
+                              className="rounded-circle me-2"
+                              style={{ width: "50px", height: "50px" }}
+                            />
+                          }
                           <small className="d-none d-lg-block text-secondary">
                             Tu
                           </small>
@@ -171,9 +173,7 @@ const MyNavBar = function () {
                       <div className="px-3 py-2 text-start">
                         <div className="d-flex align-items-center mb-2">
                           <img
-                            src={
-                              profilo.image || "https://via.placeholder.com/50"
-                            }
+                            src={profilo.image || "https://placedog.net/50/50"}
                             alt="Avatar"
                             className="rounded-circle me-2"
                             style={{ width: "50px", height: "50px" }}
@@ -395,7 +395,7 @@ const MyNavBar = function () {
         </Row>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default MyNavBar
+export default MyNavBar;
