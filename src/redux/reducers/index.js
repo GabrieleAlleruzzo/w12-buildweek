@@ -46,11 +46,16 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         modalContent: initialState.modalContent,
       }
-    case "GET_PROFILE_ME":
-      return {
-        ...state,
-        profiloMe: action.payload,
-      }
+      case "GET_PROFILE_ME":
+        return {
+          ...state,
+          profiloMe: {
+            ...state.profiloMe,
+            ...action.payload,
+          },
+        };  
+      
+      
     case "SET_PROFILI_COLLEGHI":
       return {
         ...state,
