@@ -78,7 +78,6 @@ const Esperienze = function () {
             headers: { 
                 "Authorization": apiKey,
                 'Content-type': 'application/json'
-
             }
         })
         .then((response) => {
