@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Modal } from "react-bootstrap";
-import AddProfiloBody from "./componentsBio.jsx/AddProfileBody";
-import ImprovedProfileBody from "./componentsBio.jsx/ImprovedProfiloBody";
-import EditProfileBody from "./componentsBio.jsx/EditProfileBody";
+import AddProfiloBody from "./componentsBio/AddProfileBody";
+import ImprovedProfileBody from "./componentsBio/ImprovedProfiloBody";
+import EditProfileBody from "./componentsBio/EditProfileBody";
 const getModalBody = (bodyType, profilo) => {
   switch (bodyType) {
     case "aggiungiProfilo":
