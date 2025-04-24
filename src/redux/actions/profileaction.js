@@ -1,4 +1,4 @@
-import { ProfileAPI } from "../../components/api/profile";
+import { ProfileAPI } from "../components/api/profile";
 
 export const aggiornaProfilo = (profiloAggiornato) => {
   return async (dispatch) => {
@@ -14,9 +14,12 @@ export const aggiornaProfilo = (profiloAggiornato) => {
           area: data.area,
           image: data.image,
         },
+        
       });
+      return data;
     } catch (error) {
       console.error("Errore nella dispatch PUT:", error);
+      throw error;
     }
   };
 }; 
