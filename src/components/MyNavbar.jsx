@@ -174,6 +174,7 @@ const MyNavBar = function () {
                           width: "22px",
                           height: "22px",
                           marginRight: "0",
+                          objectFit: "cover"
                         }}
                       />
                       <small className="d-none d-lg-block text-secondary">
@@ -194,7 +195,7 @@ const MyNavBar = function () {
                               src={profilo.image}
                               alt="Avatar"
                               className="rounded-circle me-2"
-                              style={{ width: "50px", height: "50px" }}
+                              style={{ width: "50px", height: "50px", objectFit: "cover" }}
                             />
                             <div>
                               <div className="fw-bold">
@@ -262,7 +263,7 @@ const MyNavBar = function () {
                           src={profilo.image}
                           alt="Avatar"
                           className="rounded-circle"
-                          style={{ width: "20px", height: "20px" }}
+                          style={{ width: "20px", height: "20px", objectFit: "cover" }}
                         />
                         <small className="d-none d-lg-block">Tu</small>
                       </div>
@@ -279,7 +280,7 @@ const MyNavBar = function () {
                           }
                           alt="Avatar"
                           className="rounded-circle me-2"
-                          style={{ width: "50px", height: "50px" }}
+                          style={{ width: "50px", height: "50px", objectFit: "cover" }}
                         />
                         <div>
                           <div className="fw-bold">
