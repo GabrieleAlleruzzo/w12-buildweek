@@ -26,7 +26,7 @@ const UploadImage = ({ userId }) => {
       const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`, {
         method: "POST",
         headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4OTY3MDk1ODc4ZjAwMTVmNGExYjkiLCJpYXQiOjE3NDUzOTMyNjQsImV4cCI6MTc0NjYwMjg2NH0.dVSiLU98dFjQrSCo3MLWZvbclhG9fHU5ZfGfsApK7EM"
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3NDg1MGQ0NTE4MTAwMTVjZTgzZDAiLCJpYXQiOjE3NDUzMDc3MjksImV4cCI6MTc0NjUxNzMyOX0.XsDB_0wxOxSVVPfYv2ll06BP1MT2SobGlh84LGMGixc"
         },
         body: formData
       });
