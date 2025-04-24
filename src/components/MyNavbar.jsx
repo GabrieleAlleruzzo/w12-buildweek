@@ -6,30 +6,38 @@ import {
   Form,
   Row,
   Col,
-} from "react-bootstrap";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import React, { useState, useRef, useEffect } from "react";
+} from "react-bootstrap"
+import "bootstrap-icons/font/bootstrap-icons.css"
+import React, { useState, useRef, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchProfiloMe } from "../redux/actions"
 
 const MyNavBar = function () {
-  const [showUserDropdown, setShowUserDropdown] = useState(false);
-  const dropdownRef = useRef(null);
+  const [showUserDropdown, setShowUserDropdown] = useState(false)
+  const dropdownRef = useRef(null)
+  const dispatch = useDispatch()
+  const profilo = useSelector((state) => state.profiloMe) // accedi allo stato del profilo
 
   const toggleUserDropdown = () => {
-    setShowUserDropdown(!showUserDropdown);
-  };
+    setShowUserDropdown(!showUserDropdown)
+  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowUserDropdown(false);
+        setShowUserDropdown(false)
       }
-    };
+    }
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownRef]);
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [dropdownRef])
+
+  useEffect(() => {
+    dispatch(fetchProfiloMe())
+  }, [dispatch])
 
   return (
     <>
@@ -144,10 +152,12 @@ const MyNavBar = function () {
                       title={
                         <div className="d-flex flex-column align-items-center">
                           <img
-                            src="http://localhost:5173/src/assets/avatarVuoto.webp?t=1745393890655"
+                            src={
+                              profilo.image || "https://via.placeholder.com/50"
+                            }
                             alt="Avatar"
-                            className="rounded-circle mb-1"
-                            style={{ width: "20px", height: "20px" }}
+                            className="rounded-circle me-2"
+                            style={{ width: "50px", height: "50px" }}
                           />
                           <small className="d-none d-lg-block text-secondary">
                             Tu
@@ -161,13 +171,23 @@ const MyNavBar = function () {
                       <div className="px-3 py-2 text-start">
                         <div className="d-flex align-items-center mb-2">
                           <img
-                            src="https://via.placeholder.com/50"
+                            src={
+                              profilo.image || "https://via.placeholder.com/50"
+                            }
                             alt="Avatar"
                             className="rounded-circle me-2"
                             style={{ width: "50px", height: "50px" }}
                           />
                           <div>
-                            <div className="fw-bold">Nome Cognome</div>
+                            <div className="fw-bold">
+                              {profilo.name || "Nome Cognome"}
+                            </div>
+                            <div
+                              className="text-muted"
+                              style={{ fontSize: "0.8rem" }}
+                            >
+                              {profilo.title || "Ruolo professionale"}
+                            </div>
                             <div
                               className="text-muted"
                               style={{ fontSize: "0.8rem" }}
@@ -241,18 +261,23 @@ const MyNavBar = function () {
                       <div className="px-3 py-2 text-start">
                         <div className="d-flex align-items-center mb-2">
                           <img
-                            src="https://via.placeholder.com/50"
+                            src={
+                              profilo.image || "https://via.placeholder.com/50"
+                            }
                             alt="Avatar"
                             className="rounded-circle me-2"
                             style={{ width: "50px", height: "50px" }}
                           />
                           <div>
-                            <div className="fw-bold">Nome Cognome</div>
+                            <div className="fw-bold">
+                              {" "}
+                              {profilo.name || "Nome Cognome"} {profilo.surname}
+                            </div>
                             <div
                               className="text-muted"
                               style={{ fontSize: "0.8rem" }}
                             >
-                              Content Moderator
+                              {profilo.title || "Ruolo professionale"}
                             </div>
                           </div>
                         </div>
@@ -363,7 +388,7 @@ const MyNavBar = function () {
         </Row>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default MyNavBar;
+export default MyNavBar
