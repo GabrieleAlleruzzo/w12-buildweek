@@ -1,47 +1,47 @@
-import React, { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react"
+import { Container, Row, Col } from "react-bootstrap"
+import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
+import { useDispatch, useSelector } from "react-redux"
 
 const Sidebar = () => {
-  const dispatch = useDispatch();
-  const profiliColleghi = useSelector((state) => state.profiliColleghi);
+  const dispatch = useDispatch()
+  const profiliColleghi = useSelector((state) => state.profiliColleghi)
 
   useEffect(() => {
     //funzione link dinamico
     function creaLinkConUrlCorrente() {
       // Ottiene l'URL corrente della pagina.
-      const urlCorrente = window.location.href;
+      const urlCorrente = window.location.href
 
       // Crea un nuovo elemento <a>.
-      const link = document.createElement("a");
+      const link = document.createElement("a")
 
       // Imposta l'attributo href del link all'URL corrente.
-      link.href = urlCorrente;
+      link.href = urlCorrente
 
       // Imposta il testo del link per visualizzare l'URL.
-      link.textContent = urlCorrente;
-      link.style.color = "#0078d7"; // Blu, tipico per i link
-      link.style.textDecoration = "underline"; // Sottolineatura
-      link.style.fontWeight = "bold"; // Grassetto
+      link.textContent = urlCorrente
+      link.style.color = "#0078d7" // Blu, tipico per i link
+      link.style.textDecoration = "underline" // Sottolineatura
+      link.style.fontWeight = "bold" // Grassetto
 
       // Restituisce l'elemento <a> creato.
-      return link;
+      return link
     }
 
     // Ottiene l'elemento del DOM dove vogliamo inserire il link.
-    const linkContainer = document.getElementById("linkContainer");
+    const linkContainer = document.getElementById("linkContainer")
 
     // Crea il link usando la funzione.
-    const link = creaLinkConUrlCorrente();
+    const link = creaLinkConUrlCorrente()
 
     // Aggiunge il link al contenitore nell'HTML.
     if (linkContainer) {
       //aggiungo questo controllo
-      linkContainer.appendChild(link);
+      linkContainer.appendChild(link)
     }
-  }, []); // <-- Aggiungo le parentesi vuote per far eseguire l'effetto solo al mount del componente
+  }, []) // <-- Aggiungo le parentesi vuote per far eseguire l'effetto solo al mount del componente
 
   useEffect(() => {
     const userIds = [
@@ -51,10 +51,10 @@ const Sidebar = () => {
       "68074850d451810015ce83d0", // Gabriele
       "68074291d451810015ce83cc", // Vincenza
       "6807a244d451810015ce83ef", // Pietro
-    ];
+    ]
 
-    const profili = [];
-    let completedRequests = 0; // Contatore per le richieste completate
+    const profili = []
+    let completedRequests = 0 // Contatore per le richieste completate
 
     userIds.forEach((userId) => {
       fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}`, {
@@ -65,24 +65,24 @@ const Sidebar = () => {
       })
         .then((response) => {
           if (response.ok) {
-            return response.json();
+            return response.json()
           } else {
-            throw new Error("Errore nella risposta del server");
+            throw new Error("Errore nella risposta del server")
           }
         })
         .then((data) => {
-          profili.push(data);
-          completedRequests++;
+          profili.push(data)
+          completedRequests++
 
           if (completedRequests === userIds.length) {
-            dispatch({ type: "SET_PROFILI_COLLEGHI", payload: profili });
+            dispatch({ type: "SET_PROFILI_COLLEGHI", payload: profili })
           }
         })
         .catch((error) => {
-          console.log("Errore nella fetch:", error);
-        });
-    });
-  }, [dispatch]);
+          console.log("Errore nella fetch:", error)
+        })
+    })
+  }, [dispatch])
 
   return (
     <Container fluid className="d-flex flex-column m-0">
@@ -131,7 +131,12 @@ const Sidebar = () => {
                               profilo.image ||
                               "https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
                             }
-                            className="rounded-circle"
+                            className="rounded-circle img-fluid"
+                            style={{
+                              width: "80px",
+                              height: "80px",
+                              objectFit: "cover",
+                            }}
                           />
                         </Col>
                         <Col xs={9}>
@@ -192,7 +197,7 @@ const Sidebar = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar
