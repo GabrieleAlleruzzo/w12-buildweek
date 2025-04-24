@@ -176,7 +176,6 @@ const MyNavBar = function () {
                         Tu
                       </small>
                     </div>
-
                     {/* Menu del dropdown (condizionale) */}
                     {showUserDropdown && (
                       <div

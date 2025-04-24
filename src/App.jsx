@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import MyNavbar from "./components/MyNavbar";
 import Main from "./components/Main";
 import { Col, Container, Row } from "react-bootstrap";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
           </Col>
         </Row>
       </Container>
-      <Main />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/:userId" element={<Main />} />
+      </Routes>
     </>
   );
   // inserire "Routes" e "Route"

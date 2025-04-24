@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { aggiornaProfilo } from "../../redux/actions/profileaction";
 
 import { Form, Button } from "react-bootstrap";
+import { getProfiloMe } from "../../redux/actions";
 
 const EditProfileBody = ({ profilo }) => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const EditProfileBody = ({ profilo }) => {
     dispatch(aggiornaProfilo(formData));
     dispatch({ type: "CLOSE_DYNAMIC_MODAL" });
   };
+  console.log(formData.title);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -69,7 +71,9 @@ const EditProfileBody = ({ profilo }) => {
           variant="primary"
           onClick={() => {
             dispatch(aggiornaProfilo(formData));
+            console.log(formData.title);
             handleClose(); // Chiudi il modal dopo il salvataggio
+            dispatch(getProfiloMe());
           }}
         >
           Salva modifiche
