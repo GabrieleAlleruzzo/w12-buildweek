@@ -5,16 +5,9 @@ import MyNavbar from "./components/MyNavbar";
 import Main from "./components/Main";
 import { Col, Container, Row } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchProfiloMe, getProfiloMe } from "./redux/actions";
+import UploadImage from "./components/UploadImage";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchProfiloMe());
-  }, []);
   return (
     <>
       <Container

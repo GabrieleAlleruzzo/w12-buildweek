@@ -1,4 +1,5 @@
-import { ProfileAPI } from "../../components/api/profile";
+import { ProfileAPI } from "../components/api/profile";
+import aggiornaProfilo from "../redux/actions/profileActions";
 
 export const aggiornaProfilo = (profiloAggiornato) => {
   return async (dispatch) => {
