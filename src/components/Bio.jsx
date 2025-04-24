@@ -62,28 +62,31 @@ const handleCloseImageModal = () => setShowImageModal(false);
 
   return (
     <div className="bio-wrapper bg-white rounded-2 border m-3 p-3">
-      <div
+
+    <div
+        className="cover-image"
+        style={{
+          backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)`,
+        }}
+      >
+        
+            <span className="camera-icon">
+          <i className="bi bi-camera"></i>
+        </span>
+      </div>
+
+      
+
+      {/* <div
         className="cover-image"
         style={{
           backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)`,
         }}
       >
         <span className="camera-icon">
-        <Dropdown className="position-absolute top-0 end-0 m-2">
-          <Dropdown.Toggle
-            variant="light"
-            className="bg-white border-0 p-1 rounded-circle"
-            style={{ boxShadow: "0 0 5px rgba(0,0,0,0.2)" }}
-          >
-            <i className="bi bi-camera"></i>
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={handleOpenImageModal}>Carica nuova immagine</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>        
+                
         </span>
-      </div>
+      </div> */}
            {/*  <div
         className="cover-image"
         style={{
@@ -115,6 +118,17 @@ const handleCloseImageModal = () => setShowImageModal(false);
             <img src={profilo.image} alt="Foto profilo" className="d-block" />
           </div>
           <div className="w-100 d-flex justify-content-end">
+            {/* giusto */}
+          <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic" className="bg-transparent text-black border-0">
+                  <i className="bi bi-plus-lg p-2 fs-4"></i>
+              </Dropdown.Toggle>
+               <Dropdown.Menu>
+               <Dropdown.Item onClick={handleOpenImageModal}>Carica nuova immagine</Dropdown.Item>
+              </Dropdown.Menu>
+           </Dropdown>
+
+
             <i
               className="bi bi-pen p-2 fs-5"
               style={{ cursor: "pointer" }}
