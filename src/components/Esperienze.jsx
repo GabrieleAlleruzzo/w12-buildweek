@@ -3,7 +3,7 @@ import { Button, Card, Col, Dropdown, Form, Modal, Row } from "react-bootstrap"
 
 const Esperienze = function () {
   
-    const APIUrl = 'https://striveschool-api.herokuapp.com/api/profile/68074291d451810015ce83cc/experiences'
+    const APIUrl = 'https://striveschool-api.herokuapp.com/api/profile/6808967095878f0015f4a1b9/experiences'
     const apiKey = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4OTY3MDk1ODc4ZjAwMTVmNGExYjkiLCJpYXQiOjE3NDUzOTMyNjQsImV4cCI6MTc0NjYwMjg2NH0.dVSiLU98dFjQrSCo3MLWZvbclhG9fHU5ZfGfsApK7EM'
 
     const [experiences, setExperiences] = useState([])
@@ -29,6 +29,30 @@ const Esperienze = function () {
   // Funzione per chiudere il modal
   const handleClose = () => setShowModal(false)
 
+  // calcolare la durata
+
+  const calcolaDurata = (start, end) => {
+    const startDate = new Date(start)
+    const endDate = end ? new Date(end) : new Date()
+  
+    let anni = endDate.getFullYear() - startDate.getFullYear()
+    let mesi = endDate.getMonth() - startDate.getMonth()
+  
+    if (mesi < 0) {
+      anni -= 1
+      mesi += 12
+    }
+  
+    const anniStr = anni > 0 ? `${anni} ann${anni === 1 ? "" : "i"}` : ""
+    const mesiStr = mesi > 0 ? `${mesi} mes${mesi === 1 ? "" : "i"}` : ""
+
+    if (anniStr && mesiStr) return `${anniStr} e ${mesiStr}`
+    if (anniStr) return anniStr
+    if (mesiStr) return mesiStr
+
+    return "meno di un mese"
+  }
+
   // fetch get
     const getExperiences = ()  => {
         fetch(APIUrl, {
@@ -45,6 +69,7 @@ const Esperienze = function () {
             })
         .then((data) => {
             console.log('data', data)
+            console.log("Tutte le esperienze:", data.map(exp => exp._id))
             setExperiences(data)
             //console.log(experiences)
         })
@@ -53,12 +78,12 @@ const Esperienze = function () {
         })
     }
   
+    
+
+
+
+
     /* fetch POST */
-
-
-
-
-
 
     const newExperience = () => {
 
@@ -78,18 +103,23 @@ const Esperienze = function () {
             headers: { 
                 "Authorization": apiKey,
                 'Content-type': 'application/json'
-
             }
         })
         .then((response) => {
             if(response.ok){
                 console.log('salvato con successo!!')
-                getExperiences()
+                
             } else {
                 console.log(response)
                 throw new Error('post perduta')
             }
         })
+        .then((data) => {
+          console.log('risposta POST', data)
+          getExperiences()
+        }
+
+        )
         .catch((error) => {
             console.log('errore nel salvataggio!', error)
         })
@@ -155,8 +185,11 @@ const Esperienze = function () {
                     <Card.Text className="mb-0 fw-semibold">
                         {exp.company} &#183; Part-time
                     </Card.Text>
-                    <Card.Text className="mb-0 text-secondary">
-                        {exp.startDate} - {exp.endDate} &#183; durata 
+                    <Card.Text className="mb-0 text-secondary">                      
+                    {new Date(exp.startDate).toLocaleDateString("it-IT", { month: 'long', year: 'numeric' })} -{" "}
+                    {exp.endDate
+                      ? new Date(exp.endDate).toLocaleDateString("it-IT", { month: 'long', year: 'numeric' })
+                      : "Presente"} &#183; {calcolaDurata(exp.startDate, exp.endDate)} 
                     </Card.Text>
                     <Card.Text className="mb-0 fw-semibold">
                     <i className="bi bi-gem"></i> {exp.description}
