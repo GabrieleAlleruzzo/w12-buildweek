@@ -75,28 +75,6 @@ const handleCloseImageModal = () => setShowImageModal(false);
         </span>
       </div>
 
-      
-
-      {/* <div
-        className="cover-image"
-        style={{
-          backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)`,
-        }}
-      >
-        <span className="camera-icon">
-                
-        </span>
-      </div> */}
-           {/*  <div
-        className="cover-image"
-        style={{
-          backgroundImage: `url(https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg)`,
-          position: "relative",
-        }}
-      >
-        
-      </div> */}
-
       <Modal show={showImageModal} onHide={handleCloseImageModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Carica una nuova immagine</Modal.Title>
