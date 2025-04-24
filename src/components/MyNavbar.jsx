@@ -180,7 +180,8 @@ const MyNavBar = function () {
                           />
                           <div>
                             <div className="fw-bold">
-                              {profilo.name || "Nome Cognome"}
+                              {profilo.name || "Nome"}{" "}
+                              {profilo.surname || "Cognome"}
                             </div>
                             <div
                               className="text-muted"
@@ -192,7 +193,7 @@ const MyNavBar = function () {
                               className="text-muted"
                               style={{ fontSize: "0.8rem" }}
                             >
-                              Content Moderator
+                              {profilo.area}
                             </div>
                           </div>
                         </div>
@@ -278,6 +279,12 @@ const MyNavBar = function () {
                               style={{ fontSize: "0.8rem" }}
                             >
                               {profilo.title || "Ruolo professionale"}
+                            </div>
+                            <div
+                              className="text-muted"
+                              style={{ fontSize: "0.8rem" }}
+                            >
+                              {profilo.area}
                             </div>
                           </div>
                         </div>
