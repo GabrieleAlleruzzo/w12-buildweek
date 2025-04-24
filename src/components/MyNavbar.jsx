@@ -160,7 +160,7 @@ const MyNavBar = function () {
                       style={{ cursor: "pointer" }}
                     >
                       <img
-                        src={profilo.image || "https://via.placeholder.com/50"}
+                        src={profilo.image}
                         alt="Avatar"
                         className="rounded-circle me-2 mt-2"
                         style={{
@@ -185,8 +185,7 @@ const MyNavBar = function () {
                           <div className="d-flex align-items-center mb-2">
                             <img
                               src={
-                                profilo.image ||
-                                "https://via.placeholder.com/50"
+                                profilo.image
                               }
                               alt="Avatar"
                               className="rounded-circle me-2"
@@ -256,7 +255,7 @@ const MyNavBar = function () {
                       <div className="d-flex flex-column align-items-center">
                         <img
                           src={
-                            profilo.image || "https://via.placeholder.com/50"
+                            profilo.image
                           }
                           alt="Avatar"
                           className="rounded-circle"
