@@ -1,29 +1,28 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react"
+import { useDispatch } from "react-redux"
 import { aggiornaProfilo } from "../../redux/actions/profileaction"
 
-import { Form, Button } from "react-bootstrap";
-import { getProfiloMe } from "../../redux/actions";
+import { Form, Button } from "react-bootstrap"
 
 const EditProfileBody = ({ profilo }) => {
-  const dispatch = useDispatch();
-  const [formData, setFormData] = useState(profilo);
+  const dispatch = useDispatch()
+  const [formData, setFormData] = useState(profilo)
 
   // Funzione per aggiornare lo stato formData quando l'utente cambia un campo
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const handleClose = () => {
-    dispatch({ type: "CLOSE_DYNAMIC_MODAL" });
-  };
+    dispatch({ type: "CLOSE_DYNAMIC_MODAL" })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(aggiornaProfilo(formData));
-    dispatch({ type: "CLOSE_DYNAMIC_MODAL" });
-  };
-  console.log(formData.title);
+    e.preventDefault()
+    dispatch(aggiornaProfilo(formData))
+    dispatch({ type: "CLOSE_DYNAMIC_MODAL" })
+  }
+  console.log(formData.title)
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -73,14 +72,14 @@ const EditProfileBody = ({ profilo }) => {
             try {
               const profiloAggiornato = await dispatch(
                 aggiornaProfilo(formData)
-              );
-              console.log("Profilo aggiornato:", profiloAggiornato);
+              )
+              console.log("Profilo aggiornato:", profiloAggiornato)
 
               // opzionale se vuoi ricaricare tutto
 
-              handleClose(); // chiudi solo dopo tutto
+              handleClose() // chiudi solo dopo tutto
             } catch (error) {
-              console.error("Errore nell'aggiornamento:", error);
+              console.error("Errore nell'aggiornamento:", error)
               // qui puoi mostrare un toast o alert
             }
           }}
@@ -89,7 +88,7 @@ const EditProfileBody = ({ profilo }) => {
         </Button>
       </Form.Group>
     </Form>
-  );
-};
+  )
+}
 
-export default EditProfileBody;
+export default EditProfileBody
